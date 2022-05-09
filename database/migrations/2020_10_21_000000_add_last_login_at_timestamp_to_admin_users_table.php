@@ -14,6 +14,7 @@ class AddLastLoginAtTimestampToAdminUsersTable extends Migration
     public function up(): void
     {
         Schema::table('admin_users', static function (Blueprint $table) {
+            $table->id();
             $table->timestamp('last_login_at')->nullable();
         });
     }
