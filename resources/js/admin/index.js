@@ -1,0 +1,12 @@
+import './admin-user';
+import './profile-edit-profile';
+import './profile-edit-password';
+import './actor';
+import './cinema';
+import './director';
+import './movie';
+import './projection';
+import './qualification';
+import './room';
+import './slide';
+import './syncronitation';
