@@ -24,14 +24,14 @@ Route::get('/', function () {
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
         Route::prefix('admin-users')->name('admin-users/')->group(static function() {
-            Route::get('/',                                             'AdminUsersController@index')->name('index');
-            Route::get('/create',                                       'AdminUsersController@create')->name('create');
-            Route::post('/',                                            'AdminUsersController@store')->name('store');
-            Route::get('/{adminUser}/impersonal-login',                 'AdminUsersController@impersonalLogin')->name('impersonal-login');
-            Route::get('/{adminUser}/edit',                             'AdminUsersController@edit')->name('edit');
-            Route::post('/{adminUser}',                                 'AdminUsersController@update')->name('update');
-            Route::delete('/{adminUser}',                               'AdminUsersController@destroy')->name('destroy');
-            Route::get('/{adminUser}/resend-activation',                'AdminUsersController@resendActivationEmail')->name('resendActivationEmail');
+            Route::get('/',                                             'App\Http\Controllers\Admin\AdminUsersController@index')->name('index');
+            Route::get('/create',                                       'App\Http\Controllers\Admin\AdminUsersController@create')->name('create');
+            Route::post('/',                                            'App\Http\Controllers\Admin\AdminUsersController@store')->name('store');
+            Route::get('/{adminUser}/impersonal-login',                 'App\Http\Controllers\Admin\AdminUsersController@impersonalLogin')->name('impersonal-login');
+            Route::get('/{adminUser}/edit',                             'App\Http\Controllers\Admin\AdminUsersController@edit')->name('edit');
+            Route::post('/{adminUser}',                                 'App\Http\Controllers\Admin\AdminUsersController@update')->name('update');
+            Route::delete('/{adminUser}',                               'App\Http\Controllers\Admin\AdminUsersController@destroy')->name('destroy');
+            Route::get('/{adminUser}/resend-activation',                'App\Http\Controllers\Admin\AdminUsersController@resendActivationEmail')->name('resendActivationEmail');
         });
     });
 });
@@ -39,10 +39,10 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
-        Route::get('/profile',                                      'ProfileController@editProfile')->name('edit-profile');
-        Route::post('/profile',                                     'ProfileController@updateProfile')->name('update-profile');
-        Route::get('/password',                                     'ProfileController@editPassword')->name('edit-password');
-        Route::post('/password',                                    'ProfileController@updatePassword')->name('update-password');
+        Route::get('/profile',                                      'App\Http\Controllers\Admin\ProfileController@editProfile')->name('edit-profile');
+        Route::post('/profile',                                     'App\Http\Controllers\Admin\ProfileController@updateProfile')->name('update-profile');
+        Route::get('/password',                                     'App\Http\Controllers\Admin\ProfileController@editPassword')->name('edit-password');
+        Route::post('/password',                                    'App\Http\Controllers\Admin\ProfileController@updatePassword')->name('update-password');
     });
 });
 
