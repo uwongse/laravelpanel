@@ -200,7 +200,7 @@ class GetFilms extends Command
                                     //$this->info(print_r( "1".$date01, true));
                                     $mod_date = strtotime($date01 . "+ 7 days");
                                     $dia = date("d/m/Y", $mod_date);
-                                    $diaOtro = date("d/m/Y", strtotime($date01));
+                                    $diaOtro = date("d/m/Y", strtotime($dato->estreno));
                                     if ($diaOtro <= date("d/m/Y")) {
                                         if ($dia >= date("d/m/Y")) {
                                             $estreno = '1';
@@ -451,7 +451,7 @@ class GetFilms extends Command
                                 $date3 = $date3->format('Y-m-d');
                                 $mod_date = strtotime($date3 . "+ 7 days");
                                 $dia = date("d/m/Y", $mod_date);
-                                $diaOtro = date("d/m/Y", strtotime($date3));
+                                $diaOtro = date("d/m/Y", strtotime($dato->estreno));
                                 if ($diaOtro <= date("d/m/Y"))  {
                                     if ($dia >= date("d/m/Y"))  {
                                         $estreno = '1';
@@ -593,7 +593,7 @@ class GetFilms extends Command
                                     $date4 = $date4->format('Y-m-d');
                                     $mod_date = strtotime($date4 . "+ 7 days");
                                     $dia = date("d/m/Y", $mod_date);
-                                    $diaOtro = date("d/m/Y", strtotime($date4));
+                                    $diaOtro = date("d/m/Y", strtotime($dato->estreno));
                                     if ($diaOtro <= date("d/m/Y"))  {
                                         if ($dia >= date("d/m/Y"))  {
                                             $estreno = '1';
@@ -693,7 +693,7 @@ class GetFilms extends Command
                                     $dia = date("d/m/Y", $mod_date);
                                     //$this->info(print_r( "1".$date5, true));
                                     //$this->info(print_r( "2".$dia, true));
-                                    $diaOtro = date("d/m/Y", strtotime($date5));
+                                    $diaOtro = date("d/m/Y", strtotime($dato->estreno));
                                     if ($diaOtro <= date("d/m/Y"))  {
                                         if ($dia >= date("d/m/Y"))  {
                                             $estreno = '1';
@@ -826,7 +826,7 @@ class GetFilms extends Command
                                 $dia = date("d/m/Y", $mod_date);
                                 //$this->info(print_r( "1".$date6, true));
                                 //$this->info(print_r( "2".$dia, true));
-                                $diaOtro = date("d/m/Y", strtotime($date6));
+                                $diaOtro = date("d/m/Y", strtotime($dato->estreno));
                                 if ($diaOtro <= date("d/m/Y"))  {
                                     if ($dia >= date("d/m/Y"))  {
                                         $estreno = '1';
@@ -974,7 +974,7 @@ class GetFilms extends Command
                                     $dia = date("d/m/Y", $mod_date);
                                     // $this->info(print_r( "1".$date7, true));
                                     // $this->info(print_r( "2".$dia, true));
-                                    $diaOtro = date("d/m/Y", strtotime($date7));
+                                    $diaOtro = date("d/m/Y", strtotime($dato->estreno));
                                     if ($diaOtro <= date("d/m/Y"))  {
                                         if ($dia >= date("d/m/Y")) {
                                             $estreno = '1';
@@ -1078,7 +1078,7 @@ class GetFilms extends Command
                                     $dia = date("d/m/Y", $mod_date);
                                     //$this->info(print_r( "1".$date8, true));
                                     //$this->info(print_r( "2".$dia, true));
-                                    $diaOtro = date("d/m/Y", strtotime($date8));
+                                    $diaOtro = date("d/m/Y", strtotime($dato->estreno));
                                     if ($diaOtro <= date("d/m/Y"))  {
                                         if ($dia >= date("d/m/Y")) {
                                             $estreno = '1';
@@ -1214,7 +1214,7 @@ class GetFilms extends Command
                                 $dia = date("d/m/Y", $mod_date);
                                 //$this->info(print_r( "1".$date9, true));
                                 //$this->info(print_r( "2".$dia, true));
-                                $diaOtro = date("d/m/Y", strtotime($date9));
+                                $diaOtro = date("d/m/Y", strtotime($dato->estreno));
                                 if ($diaOtro <= date("d/m/Y"))  {
                                     if ($dia >= date("d/m/Y"))  {
                                         $estreno = '1';
@@ -1361,7 +1361,7 @@ class GetFilms extends Command
                                     $date10 = $date10->format('Y-m-d');
                                     $mod_date = strtotime($date10 . "+ 7 days");
                                     $dia = date("d/m/Y", $mod_date);
-                                    $diaOtro = date("d/m/Y", strtotime($date10));
+                                    $diaOtro = date("d/m/Y", strtotime($dato->estreno));
                                     if ($diaOtro <= date("d/m/Y")) {
                                         if ($dia >= date("d/m/Y"))  {
                                             $estreno = '1';
@@ -1459,7 +1459,7 @@ class GetFilms extends Command
                                     // $this->info(print_r( "1".$date01, true));
                                     // $this->info(print_r( "2".$dia, true));
 
-                                    $diaOtro = date("d/m/Y", strtotime($date11));
+                                    $diaOtro = date("d/m/Y", strtotime($dato->estreno));
                                     if ($diaOtro <= date("d/m/Y"))  {
                                         if ($dia >= date("d/m/Y"))  {
                                             $estreno = '1';
@@ -1589,7 +1589,7 @@ class GetFilms extends Command
                                 $mod_date = strtotime($date12 . "+ 7 days");
                                 $dia = date("d/m/Y", $mod_date);
 
-                                $diaOtro = date("d/m/Y", strtotime($date12));
+                                $diaOtro = date("d/m/Y", strtotime($dato->estreno));
                                 if ($diaOtro <= date("d/m/Y"))  {
                                     if ($dia >= date("d/m/Y"))  {
                                         $estreno = '1';
