@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\Admin\AdminUsersController;
 /*
 |--------------------------------------------------------------------------
@@ -25,14 +25,14 @@ Route::get('/', function () {
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
         Route::prefix('admin-users')->name('admin-users/')->group(static function() {
-            Route::get('/',                                             [AdminUsersController::class, 'index'])->name('index');
-            Route::get('/create',                                       [AdminUsersController::class, 'create'])-->name('create');
-            Route::post('/',                                            [AdminUsersController::class, 'store'])-->name('store');
-            Route::get('/{adminUser}/impersonal-login',                 [AdminUsersController::class, 'impersonalLogin'])-->name('impersonal-login');
-            Route::get('/{adminUser}/edit',                             [AdminUsersController::class, 'edit'])-->name('edit');
-            Route::post('/{adminUser}',                                 [AdminUsersController::class, 'update'])-->name('update');
-            Route::delete('/{adminUser}',                               [AdminUsersController::class, 'destroy'])-->name('destroy');
-            Route::get('/{adminUser}/resend-activation',                [AdminUsersController::class, 'resendActivationEmail'])-->name('resendActivationEmail');
+            Route::get('/',                                             'App\Http\Controllers\Admin\AdminUsersController@index')->name('index');
+            Route::get('/create',                                       'App\Http\Controllers\Admin\AdminUsersController@create')->name('create');
+            Route::post('/',                                            'App\Http\Controllers\Admin\AdminUsersController@store')->name('store');
+            Route::get('/{adminUser}/impersonal-login',                 'App\Http\Controllers\Admin\AdminUsersController@impersonalLogin')->name('impersonal-login');
+            Route::get('/{adminUser}/edit',                             'App\Http\Controllers\Admin\AdminUsersController@edit')->name('edit');
+            Route::post('/{adminUser}',                                 'App\Http\Controllers\Admin\AdminUsersController@update')->name('update');
+            Route::delete('/{adminUser}',                               'App\Http\Controllers\Admin\AdminUsersController@destroy')->name('destroy');
+            Route::get('/{adminUser}/resend-activation',                'App\Http\Controllers\Admin\AdminUsersController@resendActivationEmail')->name('resendActivationEmail');
         });
     });
 });
@@ -40,10 +40,10 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
-        Route::get('/profile',                                      [ProfileController::class ,'editProfile'])->name('edit-profile');
-        Route::post('/profile',                                     [ProfileController::class ,'updateProfile'])->name('update-profile');
-        Route::get('/password',                                     [ProfileController::class ,'editPassword'])->name('edit-password');
-        Route::post('/password',                                    [ProfileController::class ,'updatePassword'])->name('update-password');
+        Route::get('/profile',                                      'App\Http\Controllers\Admin\ProfileController@editProfile')->name('edit-profile');
+        Route::post('/profile',                                     'App\Http\Controllers\Admin\ProfileController@updateProfile')->name('update-profile');
+        Route::get('/password',                                     'App\Http\Controllers\Admin\ProfileController@editPassword')->name('edit-password');
+        Route::post('/password',                                    'App\Http\Controllers\Admin\ProfileController@updatePassword')->name('update-password');
     });
 });
 
