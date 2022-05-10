@@ -52,12 +52,13 @@ class CreatePermissionTables extends Migration
 
         Schema::create($tableNames['model_has_permissions'], function (Blueprint $table) use ($tableNames, $columnNames, $teams) {
             $table->unsignedBigInteger(PermissionRegistrar::$pivotPermission);
-            $table->bigIncrements('id');
+            
             $table->string('model_type');
             $table->unsignedBigInteger($columnNames['model_morph_key']);
             $table->index([$columnNames['model_morph_key'], 'model_type'], 'model_has_permissions_model_id_model_type_index');
 
             $table->foreign(PermissionRegistrar::$pivotPermission)
+            ->bigIncrements('id');
                 ->references('id')
                 ->on($tableNames['permissions'])
                 ->onDelete('cascade');
@@ -75,13 +76,15 @@ class CreatePermissionTables extends Migration
         });
 
         Schema::create($tableNames['model_has_roles'], function (Blueprint $table) use ($tableNames, $columnNames, $teams) {
+            \Illuminate\Support\Facades\DB::statement('SET SESSION sql_require_primary_key=0');
             $table->unsignedBigInteger(PermissionRegistrar::$pivotRole);
-            $table->bigIncrements('id');
+
             $table->string('model_type');
             $table->unsignedBigInteger($columnNames['model_morph_key']);
             $table->index([$columnNames['model_morph_key'], 'model_type'], 'model_has_roles_model_id_model_type_index');
 
             $table->foreign(PermissionRegistrar::$pivotRole)
+            
                 ->references('id')
                 ->on($tableNames['roles'])
                 ->onDelete('cascade');
@@ -98,6 +101,7 @@ class CreatePermissionTables extends Migration
         });
 
         Schema::create($tableNames['role_has_permissions'], function (Blueprint $table) use ($tableNames) {
+            \Illuminate\Support\Facades\DB::statement('SET SESSION sql_require_primary_key=0');
             $table->unsignedBigInteger(PermissionRegistrar::$pivotPermission);
             $table->unsignedBigInteger(PermissionRegistrar::$pivotRole);
 
