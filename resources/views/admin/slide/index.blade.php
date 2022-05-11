@@ -6,7 +6,7 @@
 
     <slide-listing
         :data="{{ $data->toJson() }}"
-        :url="'{{ secure_url('admin/slides') }}'"
+        :url="'{{ url('admin/slides') }}'"
         inline-template>
 
         <div class="row">
@@ -16,7 +16,7 @@
                         <i class="fa fa-align-justify"></i> {{ trans('admin.slide.actions.index') }}
 
 
-                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ secure_url('admin/slides/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.slide.actions.create') }}</a>
+                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/slides/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.slide.actions.create') }}</a>
                     </div>
                     <div class="card-body" v-cloak>
                         <div class="card-block">
@@ -113,7 +113,7 @@
                                 <i class="icon-magnifier"></i>
                                 <h3>{{ trans('brackets/admin-ui::admin.index.no_items') }}</h3>
                                 <p>{{ trans('brackets/admin-ui::admin.index.try_changing_items') }}</p>
-                                <a class="btn btn-primary btn-spinner" href="{{ secure_url('admin/slides/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.slide.actions.create') }}</a>
+                                <a class="btn btn-primary btn-spinner" href="{{ url('admin/slides/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.slide.actions.create') }}</a>
                             </div>
                         </div>
                     </div>

@@ -6,7 +6,7 @@
 
     <qualification-listing
         :data="{{ $data->toJson() }}"
-        :url="'{{ secure_url('admin/qualifications') }}'"
+        :url="'{{ url('admin/qualifications') }}'"
         inline-template>
 
         <div class="row">
@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-header">
                         <i class="fa fa-align-justify"></i> {{ trans('admin.qualification.actions.index') }}
-                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ secure_url('admin/qualifications/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.qualification.actions.create') }}</a>
+                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/qualifications/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.qualification.actions.create') }}</a>
                     </div>
                     <div class="card-body" v-cloak>
                         <div class="card-block">
@@ -108,7 +108,7 @@
                                 <i class="icon-magnifier"></i>
                                 <h3>{{ trans('brackets/admin-ui::admin.index.no_items') }}</h3>
                                 <p>{{ trans('brackets/admin-ui::admin.index.try_changing_items') }}</p>
-                                <a class="btn btn-primary btn-spinner" href="{{ secure_url('admin/qualifications/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.qualification.actions.create') }}</a>
+                                <a class="btn btn-primary btn-spinner" href="{{ url('admin/qualifications/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.qualification.actions.create') }}</a>
                             </div>
                         </div>
                     </div>

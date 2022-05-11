@@ -84,7 +84,7 @@ class DirectorsController extends Controller
         $director = Director::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => secure_url('admin/directors'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/directors'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
         return redirect('admin/directors');
@@ -138,7 +138,7 @@ class DirectorsController extends Controller
 
         if ($request->ajax()) {
             return [
-                'redirect' => secure_url('admin/directors'),
+                'redirect' => url('admin/directors'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }

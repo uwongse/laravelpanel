@@ -84,7 +84,7 @@ class RoomsController extends Controller
         $room = Room::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => secure_url('admin/rooms'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/rooms'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
         return redirect('admin/rooms');
@@ -138,7 +138,7 @@ class RoomsController extends Controller
 
         if ($request->ajax()) {
             return [
-                'redirect' => secure_url('admin/rooms'),
+                'redirect' => url('admin/rooms'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }

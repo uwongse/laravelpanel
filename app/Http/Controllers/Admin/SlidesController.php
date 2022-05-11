@@ -90,7 +90,7 @@ class SlidesController extends Controller
         $slide = Slide::create($sanitized);
         
         if ($request->ajax()) {
-            return ['redirect' => secure_url('admin/slides'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/slides'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
         return redirect('admin/slides');
@@ -149,7 +149,7 @@ class SlidesController extends Controller
 
         if ($request->ajax()) {
             return [
-                'redirect' => secure_url('admin/slides'),
+                'redirect' => url('admin/slides'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }

@@ -9,7 +9,7 @@
                 <div class="card">
         
         <director-form
-            :action="'{{ secure_url('admin/directors') }}'"
+            :action="'{{ url('admin/directors') }}'"
             v-cloak
             inline-template>
 

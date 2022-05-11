@@ -106,7 +106,7 @@ class AdminUsersController extends Controller
         $adminUser->roles()->sync(collect($request->input('roles', []))->map->id->toArray());
 
         if ($request->ajax()) {
-            return ['redirect' => secure_url('admin/admin-users'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/admin-users'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
         return redirect('admin/admin-users');
@@ -167,7 +167,7 @@ class AdminUsersController extends Controller
         }
 
         if ($request->ajax()) {
-            return ['redirect' => secure_url('admin/admin-users'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/admin-users'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
         return redirect('admin/admin-users');

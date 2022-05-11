@@ -84,7 +84,7 @@ class ActorsController extends Controller
         $actor = Actor::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => secure_url('admin/actors'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/actors'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
         return redirect('admin/actors');
@@ -138,7 +138,7 @@ class ActorsController extends Controller
 
         if ($request->ajax()) {
             return [
-                'redirect' => secure_url('admin/actors'),
+                'redirect' => url('admin/actors'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }

@@ -128,7 +128,7 @@ class MoviesController extends Controller
 
 
         if ($request->ajax()) {
-            return ['redirect' => secure_url('admin/movies'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/movies'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
         return redirect('admin/movies');
@@ -201,7 +201,7 @@ class MoviesController extends Controller
 
         if ($request->ajax()) {
             return [
-                'redirect' => secure_url('admin/movies'),
+                'redirect' => url('admin/movies'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }

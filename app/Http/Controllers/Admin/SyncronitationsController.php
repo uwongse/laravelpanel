@@ -84,7 +84,7 @@ class SyncronitationsController extends Controller
         $syncronitation = Syncronitation::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => secure_url('admin/syncronitations'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/syncronitations'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
         return redirect('admin/syncronitations');
@@ -138,7 +138,7 @@ class SyncronitationsController extends Controller
 
         if ($request->ajax()) {
             return [
-                'redirect' => secure_url('admin/syncronitations'),
+                'redirect' => url('admin/syncronitations'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }

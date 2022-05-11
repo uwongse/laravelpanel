@@ -9,7 +9,7 @@
                 <div class="card">
         
         <room-form
-            :action="'{{ secure_url('admin/rooms') }}'"
+            :action="'{{ url('admin/rooms') }}'"
             v-cloak
             inline-template>
 

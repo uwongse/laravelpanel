@@ -84,7 +84,7 @@ class CinemasController extends Controller
         $cinema = Cinema::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => secure_url('admin/cinemas'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => url('admin/cinemas'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
         return redirect('admin/cinemas');
@@ -138,7 +138,7 @@ class CinemasController extends Controller
 
         if ($request->ajax()) {
             return [
-                'redirect' => secure_url('admin/cinemas'),
+                'redirect' => url('admin/cinemas'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
