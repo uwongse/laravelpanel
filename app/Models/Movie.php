@@ -80,8 +80,8 @@ class Movie extends Model implements HasMedia
 
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('posters')->disk('mi_poster')->accepts('image/*')->canUpload('media.upload');
-        $this->addMediaCollection('backgrounds')->disk('mi_fondo')->accepts('image/*')->canUpload('media.upload');
+        $this->addMediaCollection('posters')->disk('mi_poster')->accepts('image/*');
+        $this->addMediaCollection('backgrounds')->disk('mi_fondo')->accepts('image/*');
     }
 
     public function registerMediaConversions(Media $media = null): void
