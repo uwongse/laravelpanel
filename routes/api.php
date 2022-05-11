@@ -52,7 +52,7 @@ Route::get('slide', [SlidesController::class, 'index']);
 //Route::get('movie/{id}', function($id) {
    // return Movie::find($id);
 //});
-Route::post('send', [MailController::class, 'send']);
+Route::post('/send', [MailController::class, 'send']);
 
 Route::get('movie/{id}', [idControler::class, 'show']);
 

@@ -10,11 +10,11 @@ class MailController extends Controller
 {
     public function send(Request $request)
     {
-        $contenido = $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'mensaje'=>'required',
-        ]);
+        $contenido = [
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'mensaje'=>$request->mensaje,
+        ];
  
         Mail::to("trabajocmcmola@gmail.com")->send(new DemoEmail($contenido));
     }
