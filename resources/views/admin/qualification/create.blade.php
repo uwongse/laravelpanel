@@ -9,7 +9,7 @@
                 <div class="card">
         
         <qualification-form
-            :action="'{{ resource_url('admin/qualifications') }}'"
+            :action="'{{ secure_url('admin/qualifications') }}'"
             v-cloak
             inline-template>
 

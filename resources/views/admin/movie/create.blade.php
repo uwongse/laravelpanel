@@ -9,7 +9,7 @@
                 <div class="card">
         
         <movie-form
-            :action="'{{ resource_url('admin/movies') }}'"
+            :action="'{{ secure_url('admin/movies') }}'"
             :qualifications="{{$qualifications->toJson()}}"
             :actors="{{$actors->toJson()}}"
             :directors="{{$directors->toJson()}}"

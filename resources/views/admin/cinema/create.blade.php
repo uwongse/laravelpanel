@@ -9,7 +9,7 @@
                 <div class="card">
         
         <cinema-form
-            :action="'{{ resource_url('admin/cinemas') }}'"
+            :action="'{{ secure_url('admin/cinemas') }}'"
             v-cloak
             inline-template>
 

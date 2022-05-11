@@ -9,7 +9,7 @@
                 <div class="card">
         
         <syncronitation-form
-            :action="'{{ resource_url('admin/syncronitations') }}'"
+            :action="'{{ secure_url('admin/syncronitations') }}'"
             v-cloak
             inline-template>
 
