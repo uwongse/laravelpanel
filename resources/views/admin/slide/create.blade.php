@@ -8,7 +8,7 @@
 
       
         <slide-form
-            :action="'{{ url('admin/slides') }}'"
+            :action="'{{ resource_url('admin/slides') }}'"
             v-cloak
             inline-template>
 

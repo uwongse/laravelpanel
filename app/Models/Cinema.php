@@ -27,7 +27,7 @@ class Cinema extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/cinemas/'.$this->getKey());
+        return secure_url('/admin/cinemas/'.$this->getKey());
     }
     public function projections() {
         return $this->hasMany('App\Models\Projection');

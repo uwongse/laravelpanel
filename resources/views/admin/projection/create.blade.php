@@ -9,7 +9,7 @@
                 <div class="card">
         
         <projection-form
-            :action="'{{ url('admin/projections') }}'"
+            :action="'{{ resource_url('admin/projections') }}'"
             :movies="{{$movies->toJson()}}"
             :rooms="{{$rooms->toJson()}}"
             :cinemas="{{$cinemas->toJson()}}"

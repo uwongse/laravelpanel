@@ -27,7 +27,7 @@ class Syncronitation extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/syncronitations/'.$this->getKey());
+        return secure_url('/admin/syncronitations/'.$this->getKey());
     }
     public function projections() {
         return $this->hasMany('App\Models\Projection');

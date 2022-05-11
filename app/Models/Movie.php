@@ -51,7 +51,7 @@ class Movie extends Model implements HasMedia
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/movies/' . $this->getKey());
+        return secure_url('/admin/movies/' . $this->getKey());
     }
     public function qualification()
     {

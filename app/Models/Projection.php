@@ -32,7 +32,7 @@ class Projection extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/projections/'.$this->getKey());
+        return secure_url('/admin/projections/'.$this->getKey());
     }
     public function movie() {
         return $this->belongsTo('App\Models\Movie');

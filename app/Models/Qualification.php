@@ -29,7 +29,7 @@ class Qualification extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/qualifications/'.$this->getKey());
+        return secure_url('/admin/qualifications/'.$this->getKey());
     }
     public function movie() {
         return $this->hasMany('App\Models\Movie');

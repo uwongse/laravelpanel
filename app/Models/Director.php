@@ -27,7 +27,7 @@ class Director extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/directors/'.$this->getKey());
+        return secure_url('/admin/directors/'.$this->getKey());
     }
     public function movie() {
         return $this->belongsToMany('App\Models\Movie');

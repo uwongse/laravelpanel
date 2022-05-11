@@ -27,7 +27,7 @@ class Actor extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/actors/'.$this->getKey());
+        return secure_url('/admin/actors/'.$this->getKey());
     }
     public function movie() {
         return $this->belongsToMany('App\Models\Movie');

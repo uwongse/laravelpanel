@@ -27,7 +27,7 @@ class Room extends Model
 
     public function getResourceUrlAttribute()
     {
-        return url('/admin/rooms/'.$this->getKey());
+        return secure_url('/admin/rooms/'.$this->getKey());
     }
     public function projections() {
         return $this->hasMany('App\Models\Projection');

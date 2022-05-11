@@ -42,7 +42,7 @@ class Slide extends Model implements HasMedia
     
     public function getResourceUrlAttribute()
     {
-        return url('/admin/slides/'.$this->getKey());
+        return secure_url('/admin/slides/'.$this->getKey());
     }
 
     public function registerMediaCollections(): void {
