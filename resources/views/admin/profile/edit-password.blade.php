@@ -9,7 +9,7 @@
         <div class="card">
 
             <profile-edit-password-form
-                :action="'{{ url('admin/password') }}'"
+                :action="'{{ secure_url('admin/password') }}'"
                 :data="{{ $adminUser->toJson() }}"
                 inline-template>
 
