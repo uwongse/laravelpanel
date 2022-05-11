@@ -128,7 +128,7 @@ class ProjectionsController extends Controller
         Projection::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/projections'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => secure_url('admin/projections'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
         return redirect('admin/projections');
@@ -192,7 +192,7 @@ class ProjectionsController extends Controller
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/projections'),
+                'redirect' => secure_url('admin/projections'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }

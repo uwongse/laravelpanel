@@ -84,7 +84,7 @@ class QualificationsController extends Controller
         $qualification = Qualification::create($sanitized);
 
         if ($request->ajax()) {
-            return ['redirect' => url('admin/qualifications'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
+            return ['redirect' => secure_url('admin/qualifications'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
         }
 
         return redirect('admin/qualifications');
@@ -138,7 +138,7 @@ class QualificationsController extends Controller
 
         if ($request->ajax()) {
             return [
-                'redirect' => url('admin/qualifications'),
+                'redirect' => secure_url('admin/qualifications'),
                 'message' => trans('brackets/admin-ui::admin.operation.succeeded'),
             ];
         }
