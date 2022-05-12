@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'smtp'),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -32,54 +32,9 @@ return [
     |            "postmark", "log", "array", "failover"
     |
     */
+
     'driver' => env('MAIL_DRIVER', 'sendmail'),
-
-    'mailers' => [
-        'smtp' => [
-            'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailtrap.io'),
-            'port' => env('MAIL_PORT', 2525),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
-            'timeout' => null,
-        ],
-
-        'ses' => [
-            'transport' => 'ses',
-        ],
-
-        'mailgun' => [
-            'transport' => 'mailgun',
-        ],
-
-        'postmark' => [
-            'transport' => 'postmark',
-        ],
-
-        'sendmail' => [
-            'transport' => 'sendmail',
-            'path' => env('MAIL_SENDMAIL', '/usr/sbin/sendmail -bs'),
-        ],
-
-        'log' => [
-            'transport' => 'log',
-            'channel' => env('MAIL_LOG_CHANNEL'),
-        ],
-
-        'array' => [
-            'transport' => 'array',
-        ],
-
-        'failover' => [
-            'transport' => 'failover',
-            'mailers' => [
-                'smtp',
-                'log',
-            ],
-        ],
-    ],
-
+   
     /*
     |--------------------------------------------------------------------------
     | Global "From" Address
@@ -90,12 +45,23 @@ return [
     | used globally for all e-mails that are sent by your application.
     |
     */
+    'host' => env('MAIL_HOST', 'smtp.mailtrap.io'),
+    'port' => env('MAIL_PORT', 2525),
+
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'trabajocmcmola@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'mario'),
     ],
 
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+
+    'username' => env('MAIL_USERNAME'),
+ 
+    'password' => env('MAIL_PASSWORD'),
+
+
+    'sendmail' => '/usr/sbin/sendmail -bs',
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
