@@ -33,7 +33,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'sendmail'),
+    'sendmail' => env('MAIL_SENDMAIL', '/usr/sbin/sendmail -bs'),
    
     /*
     |--------------------------------------------------------------------------
@@ -61,7 +61,7 @@ return [
     'password' => env('MAIL_PASSWORD'),
 
 
-    'sendmail' => '/usr/sbin/sendmail -bs',
+    
     'pretend' => false,
 
     /*
