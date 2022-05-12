@@ -32,7 +32,8 @@ return [
     |            "postmark", "log", "array", "failover"
     |
     */
-
+    'driver' => env('MAIL_DRIVER', 'sendmail'),
+    
     'sendmail' => env('MAIL_SENDMAIL', '/usr/sbin/sendmail -bs'),
    
     /*
