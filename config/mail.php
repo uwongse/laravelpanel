@@ -33,6 +33,7 @@ return [
     |
     */
     'driver' => env('MAIL_DRIVER', 'sendmail'),
+
     
     'sendmail' => env('MAIL_SENDMAIL', '/usr/sbin/sendmail -bs'),
    
