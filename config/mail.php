@@ -59,7 +59,7 @@ return [
 
         'sendmail' => [
             'transport' => 'sendmail',
-            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs'),
+            'path' => env('MAIL_SENDMAIL', '/usr/sbin/sendmail -bs'),
         ],
 
         'log' => [
@@ -92,8 +92,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'trabajocmcmola@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'mario'),
     ],
 
     /*

@@ -4,10 +4,10 @@
 <p><u>Demo object values:</u></p>
 Thank You,
 <br/>
-<i>{{ $demo['name'] }}</i>
+<i>{{ $name }}</i>
 <div>
-<p><b>email:</b>&nbsp;{{ $demo['email'] }}</p>
-<p><b>mensaje:</b>&nbsp;{{ $demo['mensaje']}}</p>
+<p><b>email:</b>&nbsp;{{ $email] }}</p>
+<p><b>mensaje:</b>&nbsp;{{ $mensaje}}</p>
 </div>
 
  
