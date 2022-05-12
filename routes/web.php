@@ -20,18 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('test', function () {
 
-    $user = [
-        'name' => 'mario',
-        'info' => 'Laravel Developer'
-    ];
-
-    \Mail::to('mail@codechief.org')->send(new \App\Mail\DemoEmail($user));
-
-    dd("success");
-
-});
 
 
 /* Auto-generated admin routes */
