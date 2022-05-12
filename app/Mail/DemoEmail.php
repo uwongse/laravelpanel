@@ -34,10 +34,6 @@ class DemoEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.demo')->with([
-            'name' => $this->demo['name'],
-            'email' => $this->demo['email'],
-            'mensaje'=>$this->demo['mensaje'],
-        ]);
+        return $this->view('mails.demo');
     }
 }
