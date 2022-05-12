@@ -60,7 +60,10 @@ return [
  
     'password' => env('MAIL_PASSWORD'),
 
-    'sendmail' => env('MAIL_SENDMAIL', '/usr/sbin/sendmail -bs')
+
+    'sendmail' => '/usr/sbin/sendmail -bs',
+
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
