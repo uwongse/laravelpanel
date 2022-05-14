@@ -119,7 +119,10 @@ class GetFilms extends Command
             'result' => 'ok'
         ));
 
-        
+        function URL_exists(string $url): bool
+        {
+            return str_contains(get_headers($url)[0], "200 OK");
+        }
         function RemoveSpecialChar($str)
         {
             $res = preg_replace('/[@\.\+\;\-\:\" "]+/', '', $str);
@@ -150,9 +153,9 @@ class GetFilms extends Command
                 } else {
                     $qualification = $sinNada;
                 }
-                if (is_readable($dato->caratula)) {
+                if (URL_exists($dato->caratula)) {
                     if ($dato->titulo) {
-                        
+
                         $imagen2 = file_get_contents($dato->caratula);
 
                         $photo = Storage::disk('mi_poster')->put(RemoveSpecialChar($dato->titulo) . '_posterAvenida.jpg', $imagen2);
@@ -208,9 +211,9 @@ class GetFilms extends Command
                                             $estreno = null;
                                         }
                                     } else {
-                                        if ($dia >= date("Y/m/d")){
+                                        if ($dia >= date("Y/m/d")) {
                                             $estreno = null;
-                                        } else if ($dia < date("Y/m/d")){
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     }
@@ -282,7 +285,7 @@ class GetFilms extends Command
                                         foreach ($dato->fechas->fecha as $fecha) {
                                             $fechita = Carbon::createFromFormat('d/m/Y', $fecha['value']);
                                             $dia01 = date("d/m/Y", strtotime($fechita));
-                                            if ( $dia01 == date("d/m/Y")) {
+                                            if ($dia01 == date("d/m/Y")) {
                                                 foreach ($fecha->sesiones->sesion as $sesion) {
 
                                                     $time = time();
@@ -314,15 +317,15 @@ class GetFilms extends Command
                                     $dia = date("Y/m/d", $mod_date);
                                     $diaOtro = date("Y/m/d", strtotime($date2));
                                     if ($diaOtro <= date("Y/m/d")) {
-                                        if ($dia >= date("Y/m/d"))  {
+                                        if ($dia >= date("Y/m/d")) {
                                             $estreno = '1';
-                                        } else if ($dia < date("Y/m/d"))  {
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     } else {
-                                        if ($dia >= date("Y/m/d"))  {
+                                        if ($dia >= date("Y/m/d")) {
                                             $estreno = null;
-                                        } else if ($dia < date("Y/m/d"))  {
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     }
@@ -388,7 +391,7 @@ class GetFilms extends Command
                                             $fechita2 = Carbon::createFromFormat('d/m/Y', $fecha['value']);
                                             $dia2 = date("d/m/Y", strtotime($fechita2));
 
-                                            if ($dia2 == date("d/m/Y"))  {
+                                            if ($dia2 == date("d/m/Y")) {
                                                 foreach ($fecha->sesiones->sesion as $sesion) {
                                                     $fechaday = Carbon::createFromFormat('d/m/Y', $fecha['value']);
                                                     $fechaday = $fechaday->format('Y-m-d');
@@ -452,16 +455,16 @@ class GetFilms extends Command
                                 $mod_date = strtotime($date3 . "+ 7 days");
                                 $dia = date("Y/m/d", $mod_date);
                                 $diaOtro = date("Y/m/d", strtotime($dato->estreno));
-                                if ($diaOtro <= date("Y/m/d"))  {
-                                    if ($dia >= date("Y/m/d"))  {
+                                if ($diaOtro <= date("Y/m/d")) {
+                                    if ($dia >= date("Y/m/d")) {
                                         $estreno = '1';
                                     } else if ($dia < date("Y/m/d")) {
                                         $estreno = null;
                                     }
                                 } else {
-                                    if ($dia >= date("Y/m/d"))  {
+                                    if ($dia >= date("Y/m/d")) {
                                         $estreno = null;
-                                    } else if ($dia < date("Y/m/d"))  {
+                                    } else if ($dia < date("Y/m/d")) {
                                         $estreno = null;
                                     }
                                 }
@@ -525,7 +528,7 @@ class GetFilms extends Command
                                     foreach ($dato->fechas->fecha as $fecha) {
                                         $fechita3 = Carbon::createFromFormat('d/m/Y', $fecha['value']);
                                         $dia3 = date("d/m/Y", strtotime($fechita3));
-                                        if ($dia3 == date("d/m/Y"))  {
+                                        if ($dia3 == date("d/m/Y")) {
                                             foreach ($fecha->sesiones->sesion as $sesion) {
                                                 $fechaday = Carbon::createFromFormat('d/m/Y', $fecha['value']);
                                                 $fechaday = $fechaday->format('Y-m-d');
@@ -560,7 +563,7 @@ class GetFilms extends Command
                 } else {
                     $qualification = $sinNada;
                 }
-                if (is_readable($dato->caratula)) {
+                if (URL_exists($dato->caratula)) {
                     if ($dato->titulo) {
                         $imagen2 = file_get_contents($dato->caratula);
                         Storage::disk('mi_poster')->put($dato->titulo . '_posterAvenida.jpg', $imagen2);
@@ -594,16 +597,16 @@ class GetFilms extends Command
                                     $mod_date = strtotime($date4 . "+ 7 days");
                                     $dia = date("Y/m/d", $mod_date);
                                     $diaOtro = date("Y/m/d", strtotime($dato->estreno));
-                                    if ($diaOtro <= date("Y/m/d"))  {
-                                        if ($dia >= date("Y/m/d"))  {
+                                    if ($diaOtro <= date("Y/m/d")) {
+                                        if ($dia >= date("Y/m/d")) {
                                             $estreno = '1';
-                                        } else if ($dia < date("Y/m/d"))  {
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     } else {
-                                        if ($dia >= date("Y/m/d"))  {
+                                        if ($dia >= date("Y/m/d")) {
                                             $estreno = null;
-                                        } else if ($dia < date("Y/m/d"))  {
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     }
@@ -694,16 +697,16 @@ class GetFilms extends Command
                                     //$this->info(print_r( "1".$date5, true));
                                     //$this->info(print_r( "2".$dia, true));
                                     $diaOtro = date("Y/m/d", strtotime($dato->estreno));
-                                    if ($diaOtro <= date("Y/m/d"))  {
-                                        if ($dia >= date("Y/m/d"))  {
+                                    if ($diaOtro <= date("Y/m/d")) {
+                                        if ($dia >= date("Y/m/d")) {
                                             $estreno = '1';
                                         } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     } else {
-                                        if ($dia >= date("Y/m/d"))  {
+                                        if ($dia >= date("Y/m/d")) {
                                             $estreno = null;
-                                        } else if ($dia < date("Y/m/d"))  {
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     }
@@ -827,16 +830,16 @@ class GetFilms extends Command
                                 //$this->info(print_r( "1".$date6, true));
                                 //$this->info(print_r( "2".$dia, true));
                                 $diaOtro = date("Y/m/d", strtotime($dato->estreno));
-                                if ($diaOtro <= date("Y/m/d"))  {
-                                    if ($dia >= date("Y/m/d"))  {
+                                if ($diaOtro <= date("Y/m/d")) {
+                                    if ($dia >= date("Y/m/d")) {
                                         $estreno = '1';
-                                    } else if ($dia < date("Y/m/d"))  {
+                                    } else if ($dia < date("Y/m/d")) {
                                         $estreno = null;
                                     }
                                 } else {
-                                    if ($dia >= date("Y/m/d"))  {
+                                    if ($dia >= date("Y/m/d")) {
                                         $estreno = null;
-                                    } else if ($dia < date("Y/m/d"))  {
+                                    } else if ($dia < date("Y/m/d")) {
                                         $estreno = null;
                                     }
                                 }
@@ -939,7 +942,7 @@ class GetFilms extends Command
                 } else {
                     $qualification = $sinNada;
                 }
-                if (is_readable($dato->caratula)) {
+                if (URL_exists($dato->caratula)) {
                     if ($dato->titulo) {
                         $imagen2 = file_get_contents($dato->caratula);
                         Storage::disk('mi_poster')->put(RemoveSpecialChar($dato->titulo) . '_posterOrtega.jpg', $imagen2);
@@ -975,16 +978,16 @@ class GetFilms extends Command
                                     // $this->info(print_r( "1".$date7, true));
                                     // $this->info(print_r( "2".$dia, true));
                                     $diaOtro = date("Y/m/d", strtotime($dato->estreno));
-                                    if ($diaOtro <= date("Y/m/d"))  {
+                                    if ($diaOtro <= date("Y/m/d")) {
                                         if ($dia >= date("Y/m/d")) {
                                             $estreno = '1';
-                                        } else if ($dia < date("Y/m/d"))  {
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     } else {
                                         if ($dia >= date("Y/m/d")) {
                                             $estreno = null;
-                                        } else if ($dia < date("Y/m/d"))  {
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     }
@@ -1049,7 +1052,7 @@ class GetFilms extends Command
                                         foreach ($dato->fechas->fecha as $fecha) {
                                             $fechita4 = Carbon::createFromFormat('d/m/Y', $fecha['value']);
                                             $dia4 = date("d/m/Y", strtotime($fechita4));
-                                            if ($dia4 == date("d/m/Y"))  {
+                                            if ($dia4 == date("d/m/Y")) {
                                                 foreach ($fecha->sesiones->sesion as $sesion) {
 
                                                     $time = time();
@@ -1079,14 +1082,14 @@ class GetFilms extends Command
                                     //$this->info(print_r( "1".$date8, true));
                                     //$this->info(print_r( "2".$dia, true));
                                     $diaOtro = date("Y/m/d", strtotime($dato->estreno));
-                                    if ($diaOtro <= date("Y/m/d"))  {
+                                    if ($diaOtro <= date("Y/m/d")) {
                                         if ($dia >= date("Y/m/d")) {
                                             $estreno = '1';
-                                        } else if ($dia < date("Y/m/d"))  {
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     } else {
-                                        if ($dia >= date("Y/m/d"))  {
+                                        if ($dia >= date("Y/m/d")) {
                                             $estreno = null;
                                         } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
@@ -1215,16 +1218,16 @@ class GetFilms extends Command
                                 //$this->info(print_r( "1".$date9, true));
                                 //$this->info(print_r( "2".$dia, true));
                                 $diaOtro = date("Y/m/d", strtotime($dato->estreno));
-                                if ($diaOtro <= date("Y/m/d"))  {
-                                    if ($dia >= date("Y/m/d"))  {
+                                if ($diaOtro <= date("Y/m/d")) {
+                                    if ($dia >= date("Y/m/d")) {
                                         $estreno = '1';
                                     } else if ($dia < date("Y/m/d")) {
                                         $estreno = null;
                                     }
                                 } else {
-                                    if ($dia >= date("Y/m/d"))  {
+                                    if ($dia >= date("Y/m/d")) {
                                         $estreno = null;
-                                    } else if ($dia < date("Y/m/d"))  {
+                                    } else if ($dia < date("Y/m/d")) {
                                         $estreno = null;
                                     }
                                 }
@@ -1329,7 +1332,7 @@ class GetFilms extends Command
                 } else {
                     $qualification = $sinNada;
                 }
-                if (is_readable($dato->caratula)) {
+                if (URL_exists($dato->caratula)) {
                     if ($dato->titulo) {
                         $imagen2 = file_get_contents($dato->caratula);
                         Storage::disk('mi_poster')->put($dato->titulo . '_posterOrtega.jpg', $imagen2);
@@ -1363,15 +1366,15 @@ class GetFilms extends Command
                                     $dia = date("Y/m/d", $mod_date);
                                     $diaOtro = date("Y/m/d", strtotime($dato->estreno));
                                     if ($diaOtro <= date("Y/m/d")) {
-                                        if ($dia >= date("Y/m/d"))  {
+                                        if ($dia >= date("Y/m/d")) {
                                             $estreno = '1';
-                                        } else if ($dia < date("Y/m/d"))  {
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     } else {
-                                        if ($dia >= date("Y/m/d"))  {
+                                        if ($dia >= date("Y/m/d")) {
                                             $estreno = null;
-                                        } else if ($dia < date("Y/m/d"))  {
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     }
@@ -1460,16 +1463,16 @@ class GetFilms extends Command
                                     // $this->info(print_r( "2".$dia, true));
 
                                     $diaOtro = date("Y/m/d", strtotime($dato->estreno));
-                                    if ($diaOtro <= date("Y/m/d"))  {
-                                        if ($dia >= date("Y/m/d"))  {
+                                    if ($diaOtro <= date("Y/m/d")) {
+                                        if ($dia >= date("Y/m/d")) {
                                             $estreno = '1';
-                                        } else if ($dia < date("Y/m/d"))  {
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     } else {
-                                        if ($dia >= date("Y/m/d"))  {
+                                        if ($dia >= date("Y/m/d")) {
                                             $estreno = null;
-                                        } else if ($dia < date("Y/m/d"))  {
+                                        } else if ($dia < date("Y/m/d")) {
                                             $estreno = null;
                                         }
                                     }
@@ -1590,16 +1593,16 @@ class GetFilms extends Command
                                 $dia = date("Y/m/d", $mod_date);
 
                                 $diaOtro = date("Y/m/d", strtotime($dato->estreno));
-                                if ($diaOtro <= date("Y/m/d"))  {
-                                    if ($dia >= date("Y/m/d"))  {
+                                if ($diaOtro <= date("Y/m/d")) {
+                                    if ($dia >= date("Y/m/d")) {
                                         $estreno = '1';
-                                    } else if ($dia < date("Y/m/d"))  {
+                                    } else if ($dia < date("Y/m/d")) {
                                         $estreno = null;
                                     }
                                 } else {
-                                    if ($dia >= date("Y/m/d"))  {
+                                    if ($dia >= date("Y/m/d")) {
                                         $estreno = null;
-                                    } else if ($dia < date("Y/m/d"))  {
+                                    } else if ($dia < date("Y/m/d")) {
                                         $estreno = null;
                                     }
                                 }
