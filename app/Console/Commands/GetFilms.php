@@ -224,6 +224,7 @@ class GetFilms extends Command
                                     //$this->info(print_r( "2".$dia, true));
 
                                     if ($dato->fechas[0]) {
+                                        if (file_exists($dato->caratula)){
                                         $fechadayid = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                         $fechadayid = $fechadayid->format('Y-m-d');
 
@@ -278,11 +279,11 @@ class GetFilms extends Command
 
                                                 $movie1->clearMediaCollection('backgrounds');
 
-                                                if (file_exists($dato->caratula)){
+                                                
                                                     $movie1->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                     $movie1->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
                                                     $movie = $movie1;
-                                                }
+                                                
                                                 
                                             }
                                         }
@@ -314,6 +315,7 @@ class GetFilms extends Command
                                         }
                                     }
                                 }
+                                }
                             } else {
                                 if ($dato->estreno) {
                                     $date2 = Carbon::parse($dato->estreno);
@@ -336,6 +338,7 @@ class GetFilms extends Command
                                         }
                                     }
                                     if ($dato->fechas[0]) {
+                                        if (file_exists($dato->caratula)){
                                         $fechadayid2 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                         $fechadayid2 = $fechadayid2->format('Y-m-d');
                                         $moviefind2 = Movie::where([
@@ -381,12 +384,12 @@ class GetFilms extends Command
 
                                                 $movie2->clearMediaCollection('posters');
 
-                                                if (file_exists($dato->caratula)){
+                                                
 
                                                 $movie2->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                                 $movie = $movie2;
-                                                }
+                                                
                                             }
                                         }
 
@@ -417,6 +420,7 @@ class GetFilms extends Command
                                                 }
                                             }
                                         }
+                                    }
                                     }
                                 }
                             }
@@ -476,6 +480,7 @@ class GetFilms extends Command
                                     }
                                 }
                                 if ($dato->fechas[0]) {
+                                    if (file_exists($dato->caratula)){
                                     $fechadayid3 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                     $fechadayid3 = $fechadayid3->format('Y-m-d');
                                     $moviefind3 = Movie::where([
@@ -523,11 +528,10 @@ class GetFilms extends Command
 
                                             $movie3->clearMediaCollection('posters');
 
-                                            if (file_exists($dato->caratula)){
                                             $movie3->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                             $movie = $movie3;
-                                            }
+                                            
                                         }
                                     }
 
@@ -556,6 +560,7 @@ class GetFilms extends Command
                                         }
                                     }
                                 }
+                            }
                             }
                         }
                     }
@@ -620,6 +625,7 @@ class GetFilms extends Command
                                     }
 
                                     if ($dato->fechas[0]) {
+                                        if (file_exists($dato->caratula)){
                                         $fechadayid4 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                         $fechadayid4 = $fechadayid4->format('Y-m-d');
                                         $moviefind4 = Movie::where([
@@ -670,11 +676,11 @@ class GetFilms extends Command
 
 
                                                 $movie4->clearMediaCollection('backgrounds');
-                                                if (file_exists($dato->caratula)){
+                                               
                                                 $movie4->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie4->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
                                                 $movie = $movie4;
-                                                }
+                                                
                                             }
                                         }
 
@@ -695,6 +701,7 @@ class GetFilms extends Command
                                                 ));
                                             }
                                         }
+                                    }
                                     }
                                 }
                             } else {
@@ -720,6 +727,7 @@ class GetFilms extends Command
                                         }
                                     }
                                     if ($dato->fechas[0]) {
+                                        if (file_exists($dato->caratula)){
                                         $fechadayid5 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                         $fechadayid5 = $fechadayid5->format('Y-m-d');
                                         $moviefind6 = Movie::where([
@@ -766,10 +774,10 @@ class GetFilms extends Command
 
                                                 $movie5->clearMediaCollection('posters');
 
-                                                if (file_exists($dato->caratula)){
+                                             
                                                 $movie5->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie = $movie5;
-                                                }
+                                                
                                             }
                                         }
 
@@ -793,6 +801,7 @@ class GetFilms extends Command
                                                 ));
                                             }
                                         }
+                                    }
                                     }
                                 }
                             }
@@ -854,6 +863,7 @@ class GetFilms extends Command
                                     }
                                 }
                                 if ($dato->fechas[0]) {
+                                    if (file_exists($dato->caratula)){
                                     $fechadayid6 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                     $fechadayid6 = $fechadayid6->format('Y-m-d');
 
@@ -900,10 +910,10 @@ class GetFilms extends Command
 
                                             $movie6->clearMediaCollection('posters');
 
-                                            if (file_exists($dato->caratula)){
+                                           
                                             $movie6->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                             $movie = $movie6;
-                                            }
+                                            
                                         }
                                     }
 
@@ -925,6 +935,7 @@ class GetFilms extends Command
                                             ));
                                         }
                                     }
+                                }
                                 }
                             }
                         }
@@ -1003,6 +1014,7 @@ class GetFilms extends Command
                                         }
                                     }
                                     if ($dato->fechas[0]) {
+                                        if (file_exists($dato->caratula)){
                                         $fechadayid7 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                         $fechadayid7 = $fechadayid7->format('Y-m-d');
                                         $moviefind8 = Movie::where([
@@ -1051,11 +1063,11 @@ class GetFilms extends Command
 
 
                                                 $movie7->clearMediaCollection('backgrounds');
-                                                if (file_exists($dato->caratula)){
+                                              
                                                 $movie7->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie7->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
                                                 $movie22 = $movie7;
-                                                }
+                                                
                                             }
                                         }
 
@@ -1084,6 +1096,7 @@ class GetFilms extends Command
                                             }
                                         }
                                     }
+                                    }
                                 }
                             } else {
                                 if ($dato->estreno) {
@@ -1108,6 +1121,7 @@ class GetFilms extends Command
                                         }
                                     }
                                     if ($dato->fechas[0]) {
+                                        if (file_exists($dato->caratula)){
                                         $fechadayid8 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                         $fechadayid8 = $fechadayid8->format('Y-m-d');
                                         $moviefind9 = Movie::where([
@@ -1151,12 +1165,12 @@ class GetFilms extends Command
                                             if ($movie8) {
 
                                                 $movie8->clearMediaCollection('posters');
-                                                if (file_exists($dato->caratula)){
+                                             
 
                                                 $movie8->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                                 $movie22 = $movie8;
-                                                }
+                                                
                                             }
                                         }
 
@@ -1185,6 +1199,7 @@ class GetFilms extends Command
                                                 }
                                             }
                                         }
+                                    }
                                     }
                                 }
                             }
@@ -1245,6 +1260,7 @@ class GetFilms extends Command
                                     }
                                 }
                                 if ($dato->fechas[0]) {
+                                    if (file_exists($dato->caratula)){
                                     $fechadayid9 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                     $fechadayid9 = $fechadayid9->format('Y-m-d');
                                     $moviefind10 = Movie::where([
@@ -1289,12 +1305,12 @@ class GetFilms extends Command
                                         if ($movie9) {
 
                                             $movie9->clearMediaCollection('posters');
-                                            if (file_exists($dato->caratula)){
+                                      
 
                                             $movie9->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                             $movie22 = $movie9;
-                                            }
+                                            
                                         }
                                     }
 
@@ -1324,6 +1340,7 @@ class GetFilms extends Command
                                             }
                                         }
                                     }
+                                }
                                 }
                             }
                         }
@@ -1393,6 +1410,7 @@ class GetFilms extends Command
                                         }
                                     }
                                     if ($dato->fechas[0]) {
+                                        if (file_exists($dato->caratula)){
                                         $fechadayid10 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                         $fechadayid10 = $fechadayid10->format('Y-m-d');
                                         $moviefind11 = Movie::where([
@@ -1442,11 +1460,11 @@ class GetFilms extends Command
 
 
                                                 $movie10->clearMediaCollection('backgrounds');
-                                                if (file_exists($dato->caratula)){
+                                          
                                                 $movie10->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie10->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
                                                 $movie22 = $movie10;
-                                                }
+                                                
                                             }
                                         }
 
@@ -1466,6 +1484,7 @@ class GetFilms extends Command
                                                 ));
                                             }
                                         }
+                                    }
                                     }
                                 }
                             } else {
@@ -1492,6 +1511,7 @@ class GetFilms extends Command
                                         }
                                     }
                                     if ($dato->fechas[0]) {
+                                        if (file_exists($dato->caratula)){
                                         $fechadayid11 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                         $fechadayid11 = $fechadayid11->format('Y-m-d');
                                         $moviefind12 = Movie::where([
@@ -1538,11 +1558,11 @@ class GetFilms extends Command
 
 
                                                 $movie11->clearMediaCollection('backgrounds');
-                                                if (file_exists($dato->caratula)){
+                                      
                                                 $movie11->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                                 $movie22 = $movie11;
-                                                }
+                                                
                                             }
                                         }
 
@@ -1564,6 +1584,7 @@ class GetFilms extends Command
                                                 ));
                                             }
                                         }
+                                    }
                                     }
                                 }
                             }
@@ -1623,6 +1644,7 @@ class GetFilms extends Command
                                     }
                                 }
                                 if ($dato->fechas[0]) {
+                                    if (file_exists($dato->caratula)){
                                     $fechadayid12 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                     $fechadayid12 = $fechadayid12->format('Y-m-d');
                                     $moviefind13 = Movie::where([
@@ -1666,12 +1688,12 @@ class GetFilms extends Command
                                         if ($movie12) {
 
                                             $movie12->clearMediaCollection('posters');
-                                            if (file_exists($dato->caratula)){
+                                        
 
                                             $movie12->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                             $movie22 = $movie12;
-                                            }
+                                            
                                         }
                                     }
 
@@ -1692,6 +1714,7 @@ class GetFilms extends Command
                                         }
                                     }
                                 }
+                            }
                             }
                         }
                     }
