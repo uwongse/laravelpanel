@@ -119,8 +119,9 @@ class GetFilms extends Command
             'result' => 'ok'
         ));
 
-        function URL_exists ($Url) {
-            if (!function_exists('curl_init')){
+        function URL_exists($Url)
+        {
+            if (!function_exists('curl_init')) {
                 die('CURL is not installed!');
             }
             $ch = curl_init();
@@ -274,6 +275,10 @@ class GetFilms extends Command
                                                     'update' => 0,
                                                 )
                                             );
+                                            $movie1->clearMediaCollection('posters');
+
+
+                                            $movie1->clearMediaCollection('backgrounds');
                                             if ($movie1) {
 
                                                 $movie1->clearMediaCollection('posters');
@@ -378,6 +383,7 @@ class GetFilms extends Command
                                                     'update' => 0,
                                                 )
                                             );
+                                            $movie2->clearMediaCollection('posters');
                                             if ($movie2) {
 
                                                 $movie2->clearMediaCollection('posters');
@@ -519,6 +525,7 @@ class GetFilms extends Command
                                                 'update' => 0,
                                             )
                                         );
+                                        $movie3->clearMediaCollection('posters');
                                         if ($movie3) {
 
                                             $movie3->clearMediaCollection('posters');
@@ -663,6 +670,11 @@ class GetFilms extends Command
                                                     'update' => 0,
                                                 )
                                             );
+
+                                            $movie4->clearMediaCollection('posters');
+
+
+                                            $movie4->clearMediaCollection('backgrounds');
                                             if ($movie4) {
 
                                                 $movie4->clearMediaCollection('posters');
@@ -760,6 +772,7 @@ class GetFilms extends Command
                                                     'update' => 0,
                                                 )
                                             );
+                                            $movie5->clearMediaCollection('posters');
                                             if ($movie5) {
 
                                                 $movie5->clearMediaCollection('posters');
@@ -893,6 +906,7 @@ class GetFilms extends Command
                                                 'update' => 0,
                                             )
                                         );
+                                        $movie6->clearMediaCollection('posters');
                                         if ($movie6) {
 
                                             $movie6->clearMediaCollection('posters');
@@ -1041,6 +1055,10 @@ class GetFilms extends Command
                                                     'update' => 0,
                                                 )
                                             );
+                                            $movie7->clearMediaCollection('posters');
+
+
+                                            $movie7->clearMediaCollection('backgrounds');
                                             if ($movie7) {
 
                                                 $movie7->clearMediaCollection('posters');
@@ -1143,6 +1161,7 @@ class GetFilms extends Command
                                                     'update' => 0,
                                                 )
                                             );
+                                            $movie8->clearMediaCollection('posters');
                                             if ($movie8) {
 
                                                 $movie8->clearMediaCollection('posters');
@@ -1280,6 +1299,7 @@ class GetFilms extends Command
                                                 'update' => 0,
                                             )
                                         );
+                                        $movie9->clearMediaCollection('posters');
                                         if ($movie9) {
 
                                             $movie9->clearMediaCollection('posters');
@@ -1429,6 +1449,10 @@ class GetFilms extends Command
                                                     'update' => 0,
                                                 )
                                             );
+                                            $movie10->clearMediaCollection('posters');
+
+
+                                            $movie10->clearMediaCollection('backgrounds');
                                             if ($movie10) {
 
                                                 $movie10->clearMediaCollection('posters');
@@ -1524,6 +1548,10 @@ class GetFilms extends Command
                                                     'update' => 0,
                                                 )
                                             );
+                                            $movie11->clearMediaCollection('posters');
+
+
+                                            $movie11->clearMediaCollection('backgrounds');
                                             if ($movie11) {
 
                                                 $movie11->clearMediaCollection('posters');
@@ -1654,6 +1682,8 @@ class GetFilms extends Command
                                                 'update' => 0,
                                             )
                                         );
+                                        $movie12->clearMediaCollection('posters');
+
                                         if ($movie12) {
 
                                             $movie12->clearMediaCollection('posters');

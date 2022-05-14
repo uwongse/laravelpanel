@@ -19,7 +19,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('command:getFilms')->hourly();
+         $schedule->command('command:getFilms')->daily();
     }
 
     /**
