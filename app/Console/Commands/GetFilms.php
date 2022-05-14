@@ -192,11 +192,12 @@ class GetFilms extends Command
                                 $imagen = file_get_contents($fondo);
                                 if (file_exists($imagen)){
                                     $imgData = Storage::disk('mi_fondo')->put(RemoveSpecialChar($dato->titulo) . '_fondoAvenida.jpg', $imagen);
+                                    $this->info(print_r($imgData, true));
                                 }
                                
 
 
-                                $this->info(print_r($imgData, true));
+                                
 
 
                                 if ($dato->estreno) {
