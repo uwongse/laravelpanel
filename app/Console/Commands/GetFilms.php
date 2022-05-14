@@ -152,10 +152,13 @@ class GetFilms extends Command
                 }
                 if ($dato->caratula) {
                     if ($dato->titulo) {
-
                         $imagen2 = file_get_contents($dato->caratula);
+                        if (file_exists($imagen2)){
+                            $photo = Storage::disk('mi_poster')->put(RemoveSpecialChar($dato->titulo) . '_posterAvenida.jpg', $imagen2);
+                        }
+                        
 
-                        $photo = Storage::disk('mi_poster')->put(RemoveSpecialChar($dato->titulo) . '_posterAvenida.jpg', $imagen2);
+                       
 
                         // Storage::disk('mi_poster')->allFiles();
 
@@ -185,9 +188,12 @@ class GetFilms extends Command
                                 //$this->info(print_r($pathFondo, true));
 
                                 $fondo = 'https://image.tmdb.org/t/p/original' . $pathFondo;
-
+                            
                                 $imagen = file_get_contents($fondo);
-                                $imgData = Storage::disk('mi_fondo')->put(RemoveSpecialChar($dato->titulo) . '_fondoAvenida.jpg', $imagen);
+                                if (file_exists($imagen)){
+                                    $imgData = Storage::disk('mi_fondo')->put(RemoveSpecialChar($dato->titulo) . '_fondoAvenida.jpg', $imagen);
+                                }
+                               
 
 
                                 $this->info(print_r($imgData, true));
@@ -271,10 +277,12 @@ class GetFilms extends Command
 
                                                 $movie1->clearMediaCollection('backgrounds');
 
-
-                                                $movie1->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
-                                                $movie1->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
-                                                $movie = $movie1;
+                                                if (file_exists($dato->caratula)){
+                                                    $movie1->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
+                                                    $movie1->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
+                                                    $movie = $movie1;
+                                                }
+                                                
                                             }
                                         }
                                         $this->info(print_r($dato->fechas[0]->fecha['value'], true));
@@ -372,11 +380,12 @@ class GetFilms extends Command
 
                                                 $movie2->clearMediaCollection('posters');
 
-
+                                                if (file_exists($dato->caratula)){
 
                                                 $movie2->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                                 $movie = $movie2;
+                                                }
                                             }
                                         }
 
@@ -513,10 +522,11 @@ class GetFilms extends Command
 
                                             $movie3->clearMediaCollection('posters');
 
-
+                                            if (file_exists($dato->caratula)){
                                             $movie3->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                             $movie = $movie3;
+                                            }
                                         }
                                     }
 
@@ -659,10 +669,11 @@ class GetFilms extends Command
 
 
                                                 $movie4->clearMediaCollection('backgrounds');
-
+                                                if (file_exists($dato->caratula)){
                                                 $movie4->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie4->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
                                                 $movie = $movie4;
+                                                }
                                             }
                                         }
 
@@ -754,9 +765,10 @@ class GetFilms extends Command
 
                                                 $movie5->clearMediaCollection('posters');
 
-
+                                                if (file_exists($dato->caratula)){
                                                 $movie5->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie = $movie5;
+                                                }
                                             }
                                         }
 
@@ -887,9 +899,10 @@ class GetFilms extends Command
 
                                             $movie6->clearMediaCollection('posters');
 
-
+                                            if (file_exists($dato->caratula)){
                                             $movie6->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                             $movie = $movie6;
+                                            }
                                         }
                                     }
 
@@ -1037,10 +1050,11 @@ class GetFilms extends Command
 
 
                                                 $movie7->clearMediaCollection('backgrounds');
-
+                                                if (file_exists($dato->caratula)){
                                                 $movie7->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie7->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
                                                 $movie22 = $movie7;
+                                                }
                                             }
                                         }
 
@@ -1136,11 +1150,12 @@ class GetFilms extends Command
                                             if ($movie8) {
 
                                                 $movie8->clearMediaCollection('posters');
-
+                                                if (file_exists($dato->caratula)){
 
                                                 $movie8->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                                 $movie22 = $movie8;
+                                                }
                                             }
                                         }
 
@@ -1273,11 +1288,12 @@ class GetFilms extends Command
                                         if ($movie9) {
 
                                             $movie9->clearMediaCollection('posters');
-
+                                            if (file_exists($dato->caratula)){
 
                                             $movie9->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                             $movie22 = $movie9;
+                                            }
                                         }
                                     }
 
@@ -1425,10 +1441,11 @@ class GetFilms extends Command
 
 
                                                 $movie10->clearMediaCollection('backgrounds');
-
+                                                if (file_exists($dato->caratula)){
                                                 $movie10->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie10->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
                                                 $movie22 = $movie10;
+                                                }
                                             }
                                         }
 
@@ -1520,10 +1537,11 @@ class GetFilms extends Command
 
 
                                                 $movie11->clearMediaCollection('backgrounds');
-
+                                                if (file_exists($dato->caratula)){
                                                 $movie11->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                                 $movie22 = $movie11;
+                                                }
                                             }
                                         }
 
@@ -1647,11 +1665,12 @@ class GetFilms extends Command
                                         if ($movie12) {
 
                                             $movie12->clearMediaCollection('posters');
-
+                                            if (file_exists($dato->caratula)){
 
                                             $movie12->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                             $movie22 = $movie12;
+                                            }
                                         }
                                     }
 
