@@ -119,9 +119,16 @@ class GetFilms extends Command
             'result' => 'ok'
         ));
 
-        function URL_exists(string $url): bool
-        {
-            return str_contains(get_headers($url)[0], "200 OK");
+        function URL_exists ($Url) {
+            if (!function_exists('curl_init')){
+                die('CURL is not installed!');
+            }
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $Url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $output = curl_exec($ch);
+            curl_close($ch);
+            return $output;
         }
         function RemoveSpecialChar($str)
         {
@@ -153,7 +160,7 @@ class GetFilms extends Command
                 } else {
                     $qualification = $sinNada;
                 }
-                if (URL_exists($dato->caratula)) {
+                if (@URL_exists($dato->caratula)) {
                     if ($dato->titulo) {
 
                         $imagen2 = file_get_contents($dato->caratula);
@@ -563,7 +570,7 @@ class GetFilms extends Command
                 } else {
                     $qualification = $sinNada;
                 }
-                if (URL_exists($dato->caratula)) {
+                if (@URL_exists($dato->caratula)) {
                     if ($dato->titulo) {
                         $imagen2 = file_get_contents($dato->caratula);
                         Storage::disk('mi_poster')->put($dato->titulo . '_posterAvenida.jpg', $imagen2);
@@ -942,7 +949,7 @@ class GetFilms extends Command
                 } else {
                     $qualification = $sinNada;
                 }
-                if (URL_exists($dato->caratula)) {
+                if (@URL_exists($dato->caratula)) {
                     if ($dato->titulo) {
                         $imagen2 = file_get_contents($dato->caratula);
                         Storage::disk('mi_poster')->put(RemoveSpecialChar($dato->titulo) . '_posterOrtega.jpg', $imagen2);
@@ -1332,7 +1339,7 @@ class GetFilms extends Command
                 } else {
                     $qualification = $sinNada;
                 }
-                if (URL_exists($dato->caratula)) {
+                if (@URL_exists($dato->caratula)) {
                     if ($dato->titulo) {
                         $imagen2 = file_get_contents($dato->caratula);
                         Storage::disk('mi_poster')->put($dato->titulo . '_posterOrtega.jpg', $imagen2);
