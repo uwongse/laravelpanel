@@ -430,9 +430,10 @@ class GetFilms extends Command
 
                             $cast = $arrayResponse3['cast'];
                             $crew = $arrayResponse3['crew'];
-
+                            if (file_exists($dato->caratula)){
 
                             if ($cast) {
+                                
                                 $movie->actors()->detach();
                                 foreach ($cast as $actor) {
                                     if ($actor['known_for_department'] == 'Acting') {
@@ -459,6 +460,7 @@ class GetFilms extends Command
                                     }
                                 }
                             }
+                        }
                         } else {
                             if ($dato->estreno) {
                                 $date3 = Carbon::parse($dato->estreno);
@@ -811,7 +813,7 @@ class GetFilms extends Command
 
                             $cast = $arrayResponse3['cast'];
                             $crew = $arrayResponse3['crew'];
-
+                            if (file_exists($dato->caratula)){
 
                             if ($cast) {
                                 $movie->actors()->detach();
@@ -840,6 +842,7 @@ class GetFilms extends Command
                                     }
                                 }
                             }
+                        }
                         } else {
                             if ($dato->estreno) {
                                 $date6 = Carbon::parse($dato->estreno);
@@ -1210,7 +1213,7 @@ class GetFilms extends Command
                             $cast = $arrayResponse3['cast'];
                             $crew = $arrayResponse3['crew'];
 
-
+                            if (file_exists($dato->caratula)){
                             if ($cast) {
                                 $movie22->actors()->detach();
                                 foreach ($cast as $actor) {
@@ -1237,6 +1240,7 @@ class GetFilms extends Command
                                     }
                                 }
                             }
+                        }
                         } else {
                             if ($dato->estreno) {
                                 $date9 = Carbon::parse($dato->estreno);
@@ -1595,7 +1599,7 @@ class GetFilms extends Command
                             $cast = $arrayResponse3['cast'];
                             $crew = $arrayResponse3['crew'];
 
-
+                            if (file_exists($dato->caratula)){
                             if ($cast) {
                                 $movie22->actors()->detach();
                                 foreach ($cast as $actor) {
@@ -1622,6 +1626,7 @@ class GetFilms extends Command
                                     }
                                 }
                             }
+                        }
                         } else {
                             if ($dato->estreno) {
                                 $date12 = Carbon::parse($dato->estreno);
