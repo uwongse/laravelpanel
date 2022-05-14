@@ -150,7 +150,7 @@ class GetFilms extends Command
                 } else {
                     $qualification = $sinNada;
                 }
-                if (file_exists($dato->caratula)) {
+                if (is_readable($dato->caratula)) {
                     if ($dato->titulo) {
                         
                         $imagen2 = file_get_contents($dato->caratula);
@@ -560,7 +560,7 @@ class GetFilms extends Command
                 } else {
                     $qualification = $sinNada;
                 }
-                if (file_exists($dato->caratula)) {
+                if (is_readable($dato->caratula)) {
                     if ($dato->titulo) {
                         $imagen2 = file_get_contents($dato->caratula);
                         Storage::disk('mi_poster')->put($dato->titulo . '_posterAvenida.jpg', $imagen2);
@@ -939,7 +939,7 @@ class GetFilms extends Command
                 } else {
                     $qualification = $sinNada;
                 }
-                if (file_exists($dato->caratula)) {
+                if (is_readable($dato->caratula)) {
                     if ($dato->titulo) {
                         $imagen2 = file_get_contents($dato->caratula);
                         Storage::disk('mi_poster')->put(RemoveSpecialChar($dato->titulo) . '_posterOrtega.jpg', $imagen2);
@@ -1329,7 +1329,7 @@ class GetFilms extends Command
                 } else {
                     $qualification = $sinNada;
                 }
-                if (file_exists($dato->caratula)) {
+                if (is_readable($dato->caratula)) {
                     if ($dato->titulo) {
                         $imagen2 = file_get_contents($dato->caratula);
                         Storage::disk('mi_poster')->put($dato->titulo . '_posterOrtega.jpg', $imagen2);
