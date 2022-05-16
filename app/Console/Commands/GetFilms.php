@@ -151,13 +151,7 @@ class GetFilms extends Command
 
             $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-                    Projection::where(
-                        [
-                            'syncronitation_id' => $syn->id,
-                        ]
-                    )->update(array(
-                        'syncronitation_id' => $id,
-                    ))
+     
                 
             
 
