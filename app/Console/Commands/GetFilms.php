@@ -153,22 +153,6 @@ class GetFilms extends Command
 
             $cinema_id = Cinema::where('cinema', $xmlObject->recinto['value'])->first();
 
-            $moviesyn = Movie::where([
-                'update' => 1,
-            ])->get();
-
-            if ($moviesyn) {
-                $moviessync = Movie::where(
-                    [
-                        'update' => 1,
-                    ]
-                )->get()->first();
-                $moviesss = $moviessync;
-                Projection::updateOrCreate(array(
-                    'movie_id' => $moviesss->id,
-                    'syncronitation_id' => $syn->id,
-                ));
-            }
 
             //$this->info(print_r($cinema_id->id, true));
 
@@ -969,22 +953,7 @@ class GetFilms extends Command
             $xmlOrtega = @file_get_contents($ortega, true);
             $xmlObject = simplexml_load_string($xmlOrtega);
 
-            $moviesyn2 = Movie::where([
-                'update' => 1,
-            ])->get();
-
-            if ($moviesyn2) {
-                $moviessync2 = Movie::where(
-                    [
-                        'update' => 1,
-                    ]
-                )->get()->first();
-                $moviess = $moviessync2;
-                Projection::updateOrCreate(array(
-                    'movie_id' => $moviess->id,
-                    'syncronitation_id' => $syn->id,
-                ));
-            }
+           
 
             foreach ($xmlObject->recinto->evento as $dato) {
                 if ($dato->titulo['nexp'] == 0) {
