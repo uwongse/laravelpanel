@@ -151,7 +151,7 @@ class GetFilms extends Command
 
             $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-            $moviesyn = Movie::where([
+           /* $moviesyn = Movie::where([
                 'update' => 1,
             ])->get();
 
@@ -175,7 +175,7 @@ class GetFilms extends Command
                 }
                 
             }
-
+*/
             
 
             $cinema_id = Cinema::where('cinema', $xmlObject->recinto['value'])->first();
