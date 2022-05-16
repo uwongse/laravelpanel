@@ -20,6 +20,7 @@ class MovieResource extends JsonResource
             'title'=>$this->title,
             'synopsis'=>$this->synopsis,
             'duration'=>$this->duration,
+            'date'=>$this->date,
             'poster'=>$this->getFirstMediaUrl('postes'),
             'background'=>$this->getFirstMediaUrl('backgrounds'),
             'trailer'=>$this->trailer,

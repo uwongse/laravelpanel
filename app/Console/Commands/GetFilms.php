@@ -149,7 +149,10 @@ class GetFilms extends Command
 
             $xmlObject = simplexml_load_string($xmlAvenida);
 
+            $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
+           
+            
 
             $cinema_id = Cinema::where('cinema', $xmlObject->recinto['value'])->first();
 

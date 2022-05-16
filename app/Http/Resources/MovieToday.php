@@ -22,6 +22,7 @@ class MovieToday extends JsonResource
             'title'=>$this->title,
             'synopsis'=>$this->synopsis,
             'duration'=>$this->duration,
+            'date'=>$this->date,
             'poster'=>$this->getFirstMediaUrl('posters'),
             'background'=>$this->getFirstMediaUrl('backgrounds'),
             'trailer'=>$this->trailer,
