@@ -22,7 +22,7 @@ class MoviesTodayControler extends Controller
         $date = Carbon::now()->format("Y/m/d");
         
         return MovieToday::collection( Movie::whereHas('projections', function (Builder $query ) use ($id ,$date)  {
-            $query->where('projections.syncronitation_id', $id->id)->where('release_date', null)->where('cinema_id',"!=", 3)->where('date',">=", $date);
+            $query->where('projections.syncronitation_id', $id->id)->where('release_date','=', $date)->where('cinema_id',"!=", 3);
         })->orderBy('premiere', 'desc')->with('Qualification')->with('Actors')->with('Directors')
         ->get());
 

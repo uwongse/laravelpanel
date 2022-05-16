@@ -144,7 +144,7 @@ class GetFilms extends Command
         }
 
         if (@file_get_contents($avenida, true)) {
-
+            $fechahoy= date("Y/m/d");
             $xmlAvenida = @file_get_contents($avenida, true);
 
             $xmlObject = simplexml_load_string($xmlAvenida);
@@ -326,6 +326,7 @@ class GetFilms extends Command
 
                                                     Projection::updateOrCreate(array(
                                                         'hour' => $sesion['hora'],
+                                                        'release_date'=> $fechahoy,
                                                         'movie_id' => $movie->id,
                                                         'room_id' => $sesion['sala'],
                                                         'cinema_id' => $cinema_id->id,
@@ -430,7 +431,7 @@ class GetFilms extends Command
 
                                                     Projection::updateOrCreate(array(
                                                         'hour' => $sesion['hora'],
-
+                                                        'release_date'=> $fechahoy,
                                                         'movie_id' => $movie->id,
                                                         'room_id' => $sesion['sala'],
                                                         'cinema_id' => $cinema_id->id,
@@ -568,7 +569,7 @@ class GetFilms extends Command
 
                                                 Projection::updateOrCreate(array(
                                                     'hour' => $sesion['hora'],
-
+                                                    'release_date'=> $fechahoy,
                                                     'movie_id' => $movie->id,
                                                     'room_id' => $sesion['sala'],
                                                     'cinema_id' => $cinema_id->id,
@@ -962,7 +963,7 @@ class GetFilms extends Command
         }
 
         if (@file_get_contents($ortega, true)) {
-
+            $fechahoy= date("Y/m/d");
             $xmlOrtega = @file_get_contents($ortega, true);
             $xmlObject = simplexml_load_string($xmlOrtega);
             $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->skip(1)->first();
@@ -1113,7 +1114,7 @@ class GetFilms extends Command
 
                                                     Projection::updateOrCreate(array(
                                                         'hour' => $sesion['hora'],
-
+                                                        'release_date'=> $fechahoy,
                                                         'movie_id' => $movie22->id,
                                                         'room_id' => $sesion['sala'],
                                                         'cinema_id' => $cinema_id,
@@ -1215,7 +1216,7 @@ class GetFilms extends Command
 
                                                     Projection::updateOrCreate(array(
                                                         'hour' => $sesion['hora'],
-
+                                                        'release_date'=> $fechahoy,
                                                         'movie_id' => $movie22->id,
                                                         'room_id' => $sesion['sala'],
                                                         'cinema_id' => $cinema_id,
@@ -1354,7 +1355,7 @@ class GetFilms extends Command
 
                                                 Projection::updateOrCreate(array(
                                                     'hour' => $sesion['hora'],
-
+                                                    'release_date'=> $fechahoy,
                                                     'movie_id' => $movie22->id,
                                                     'room_id' => $sesion['sala'],
                                                     'cinema_id' => $cinema_id,

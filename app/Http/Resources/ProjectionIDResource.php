@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Models\Syncronitation;
 use App\Models\Projection;
-
+use Carbon\Carbon;
 class ProjectionIDResource extends JsonResource
 {
     /**
@@ -17,7 +17,7 @@ class ProjectionIDResource extends JsonResource
     public function toArray($request)
     {
         $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
-
+        $date = Carbon::now()->format("Y/m/d");
         return [
             'id'=>$this->id,
             'title'=>$this->title,
@@ -32,7 +32,7 @@ class ProjectionIDResource extends JsonResource
             'buy'=>$this->buy,
             'active'=>$this->active,
             'update'=>$this->update,
-            'projections'=> ProjectionResource::collection(Projection::where('projections.syncronitation_id', $id->id)->where('release_date','!=', null)->where('projections.movie_id',$this->id)
+            'projections'=> ProjectionResource::collection(Projection::where('projections.syncronitation_id', $id->id)->where('release_date','>', $date)->where('projections.movie_id',$this->id)
             ->with('movie')->with('Room')->with('Cinema')->get()),
             'qualification'=>$this->qualification,
             'actors'=>$this->actor,

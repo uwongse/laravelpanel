@@ -17,11 +17,11 @@ class ProjectionsControler extends Controller
      */
     public function index()
     {
-        $date = Carbon::now()->format("Y-m-d");
+        $date = Carbon::now()->format("Y/m/d");
 
         $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-         return ProjectionIDResource::collection( Projection::where('projections.syncronitation_id', $id->id)->where('release_date', null )
+         return ProjectionIDResource::collection( Projection::where('projections.syncronitation_id', $id->id)->where('release_date','=',$date)
         ->with('movie')->with('Room')->with('Cinema')->get());
     }
 
