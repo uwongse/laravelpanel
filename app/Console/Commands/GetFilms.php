@@ -960,7 +960,11 @@ class GetFilms extends Command
 
             $xmlOrtega = @file_get_contents($ortega, true);
             $xmlObject = simplexml_load_string($xmlOrtega);
-
+            
+            Projection::updateOrCreate(array(
+                'syncronitation_id' => $syn->id,
+            ));
+                
            
 
             foreach ($xmlObject->recinto->evento as $dato) {
