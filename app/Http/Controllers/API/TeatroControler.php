@@ -8,6 +8,7 @@ use App\Models\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Syncronitation;
+use Carbon\Carbon;
 class TeatroControler extends Controller
 {
     /**
