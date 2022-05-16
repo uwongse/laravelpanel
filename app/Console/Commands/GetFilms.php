@@ -319,14 +319,14 @@ class GetFilms extends Command
                                                     $time = time();
                                                     $hora = date("H:i", $time);
                                                     $fechaday = Carbon::createFromFormat('d/m/Y', $fecha['value']);
-                                                    $fechaday = $fechaday->format('Y-m-d');
+                                                    $fechaday = $fechaday->format('Y/m/d');
 
                                                     $this->info(print_r($sesion['hora'], true));
                                                     $this->info(print_r($hora, true));
 
                                                     Projection::updateOrCreate(array(
                                                         'hour' => $sesion['hora'],
-                                                        'release_date'=> $fechahoy,
+                                                        'release_date'=> $fechaday,
                                                         'movie_id' => $movie->id,
                                                         'room_id' => $sesion['sala'],
                                                         'cinema_id' => $cinema_id->id,
@@ -423,15 +423,15 @@ class GetFilms extends Command
 
                                             if ($dia2 == date("d/m/Y")) {
                                                 foreach ($fecha->sesiones->sesion as $sesion) {
-                                                    $fechaday = Carbon::createFromFormat('d/m/Y', $fecha['value']);
-                                                    $fechaday = $fechaday->format('Y-m-d');
+                                                    $fechaday22 = Carbon::createFromFormat('d/m/Y', $fecha['value']);
+                                                    $fechaday22 = $fechaday22->format('Y/m/d');
                                                     $time = time();
                                                     $hora = date("H:i", $time);
 
 
                                                     Projection::updateOrCreate(array(
                                                         'hour' => $sesion['hora'],
-                                                        'release_date'=> $fechahoy,
+                                                        'release_date'=> $fechaday22,
                                                         'movie_id' => $movie->id,
                                                         'room_id' => $sesion['sala'],
                                                         'cinema_id' => $cinema_id->id,
@@ -561,15 +561,15 @@ class GetFilms extends Command
                                         $dia3 = date("d/m/Y", strtotime($fechita3));
                                         if ($dia3 == date("d/m/Y")) {
                                             foreach ($fecha->sesiones->sesion as $sesion) {
-                                                $fechaday = Carbon::createFromFormat('d/m/Y', $fecha['value']);
-                                                $fechaday = $fechaday->format('Y-m-d');
+                                                $fechaday33 = Carbon::createFromFormat('d/m/Y', $fecha['value']);
+                                                $fechaday33 = $fechaday33->format('Y/m/d');
                                                 $time = time();
                                                 $hora = date("H:i", $time);
 
 
                                                 Projection::updateOrCreate(array(
                                                     'hour' => $sesion['hora'],
-                                                    'release_date'=> $fechahoy,
+                                                    'release_date'=> $fechaday33,
                                                     'movie_id' => $movie->id,
                                                     'room_id' => $sesion['sala'],
                                                     'cinema_id' => $cinema_id->id,
@@ -1109,12 +1109,12 @@ class GetFilms extends Command
 
                                                     $time = time();
                                                     $hora = date("H:i", $time);
-                                                    $fechaday = Carbon::createFromFormat('d/m/Y', $fecha['value']);
-                                                    $fechaday = $fechaday->format('Y-m-d');
+                                                    $fechaday44 = Carbon::createFromFormat('d/m/Y', $fecha['value']);
+                                                    $fechaday44= $fechaday44->format('Y/m/d');
 
                                                     Projection::updateOrCreate(array(
                                                         'hour' => $sesion['hora'],
-                                                        'release_date'=> $fechahoy,
+                                                        'release_date'=> $fechaday44,
                                                         'movie_id' => $movie22->id,
                                                         'room_id' => $sesion['sala'],
                                                         'cinema_id' => $cinema_id,
@@ -1211,12 +1211,12 @@ class GetFilms extends Command
 
                                                     $time = time();
                                                     $hora = date("H:i", $time);
-                                                    $fechaday = Carbon::createFromFormat('d/m/Y', $fecha['value']);
-                                                    $fechaday = $fechaday->format('Y-m-d');
+                                                    $fechaday55 = Carbon::createFromFormat('d/m/Y', $fecha['value']);
+                                                    $fechaday55 = $fechaday55->format('Y/m/d');
 
                                                     Projection::updateOrCreate(array(
                                                         'hour' => $sesion['hora'],
-                                                        'release_date'=> $fechahoy,
+                                                        'release_date'=> $fechaday55,
                                                         'movie_id' => $movie22->id,
                                                         'room_id' => $sesion['sala'],
                                                         'cinema_id' => $cinema_id,
@@ -1350,12 +1350,12 @@ class GetFilms extends Command
 
                                                 $time = time();
                                                 $hora = date("H:i", $time);
-                                                $fechaday = Carbon::createFromFormat('d/m/Y', $fecha['value']);
-                                                $fechaday = $fechaday->format('Y-m-d');
+                                                $fechaday66 = Carbon::createFromFormat('d/m/Y', $fecha['value']);
+                                                $fechaday66 = $fechaday66->format('Y/m/d');
 
                                                 Projection::updateOrCreate(array(
                                                     'hour' => $sesion['hora'],
-                                                    'release_date'=> $fechahoy,
+                                                    'release_date'=> $fechaday66,
                                                     'movie_id' => $movie22->id,
                                                     'room_id' => $sesion['sala'],
                                                     'cinema_id' => $cinema_id,
