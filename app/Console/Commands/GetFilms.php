@@ -149,13 +149,13 @@ class GetFilms extends Command
 
             $xmlObject = simplexml_load_string($xmlAvenida);
 
-            $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+           // $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-            Projection::updateOrCreate( [
-                'syncronitation_id' => $syn->id,
-                                                ],array(
-                'syncronitation_id' => $syn->id,
-            ));
+            Projection::where( [
+                'syncronitation_id' => 'ok',
+                                                ])->update(
+                ['syncronitation_id' => $syn->id]
+            );
                 
             
 
@@ -963,12 +963,11 @@ class GetFilms extends Command
             $xmlOrtega = @file_get_contents($ortega, true);
             $xmlObject = simplexml_load_string($xmlOrtega);
 
-            Projection::updateOrCreate( [
-                'syncronitation_id' => $syn->id,
-                                                ],array(
-                'syncronitation_id' => $syn->id,
-            ));
-                
+            Projection::where( [
+                'syncronitation_id' => 'ok',
+                                                ])->update(
+                ['syncronitation_id' => $syn->id]
+            );
            
 
             foreach ($xmlObject->recinto->evento as $dato) {
