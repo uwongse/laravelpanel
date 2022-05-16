@@ -151,20 +151,6 @@ class GetFilms extends Command
 
             $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-            $moviesyn = Movie::where([
-                'update' => 1,
-            ])->get();
-
-            if ($moviesyn) {
-                $moviessync = Movie::where(
-                    [
-                        'update' => 1,
-                    ]
-                )->get()->first();
-                $moviesss = $moviessync;
-                $diahoy = date("Y/m/d");
-                $diadate = date("Y/m/d", strtotime($moviesss->date));
-                if( $diadate >=  $diahoy ){
                     Projection::where(
                         [
                             'syncronitation_id' => $syn->id,
@@ -172,9 +158,8 @@ class GetFilms extends Command
                     )->update(array(
                         'syncronitation_id' => $id,
                     ))
-                }
                 
-            }
+            
 
             
 
