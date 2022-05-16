@@ -21,8 +21,8 @@ class TeatroControler extends Controller
         $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
         $date = Carbon::now()->format("Y/m/d");
 
-        return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($id,$date)  {
-            $query->where('projections.syncronitation_id', $id->id)->where('cinema_id', 3)->where('date',">=", $date);
+        return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($id ,$date)  {
+            $query->where('projections.syncronitation_id', $id->id)->where('date',">=", $date)->where('cinema_id', 3);
         })->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')
         ->get());
     }
