@@ -711,7 +711,7 @@ class GetFilms extends Command
                                         foreach ($dato->fechas as $fecha) {
                                             foreach ($fecha->fecha->sesiones->sesion as $sesion) {
                                                 $fechaday = Carbon::createFromFormat('d/m/Y', $fecha->fecha['value']);
-                                                $fechaday = $fechaday->format('d/m/Y');
+                                                $fechaday = $fechaday->format('Y/m/d');
                                                 Projection::updateOrCreate(array(
                                                     'hour' => $sesion['hora'],
                                                     'release_date' => $fechaday,
@@ -809,7 +809,7 @@ class GetFilms extends Command
 
                                             foreach ($fecha->fecha->sesiones->sesion as $sesion) {
                                                 $fechaday1 = Carbon::createFromFormat('d/m/Y', $fecha->fecha['value']);
-                                                $fechaday1 = $fechaday1->format('d/m/Y');
+                                                $fechaday1 = $fechaday1->format('Y/m/d');
                                                 Projection::updateOrCreate(array(
                                                     'hour' => $sesion['hora'],
                                                     'release_date' => $fechaday1,
@@ -941,7 +941,7 @@ class GetFilms extends Command
                                     foreach ($dato->fechas as $fecha) {
                                         foreach ($fecha->fecha->sesiones->sesion as $sesion) {
                                             $fechaday2 = Carbon::createFromFormat('d/m/Y', $fecha->fecha['value']);
-                                            $fechaday2 = $fechaday2->format('d/m/Y');
+                                            $fechaday2 = $fechaday2->format('Y/m/d');
                                             Projection::updateOrCreate(array(
                                                 'hour' => $sesion['hora'],
                                                 'release_date' => $fechaday2,
@@ -1498,7 +1498,7 @@ class GetFilms extends Command
 
                                             foreach ($fecha->fecha->sesiones->sesion as $sesion) {
                                                 $fechaday3 = Carbon::createFromFormat('d/m/Y', $fecha->fecha['value']);
-                                                $fechaday3 = $fechaday3->format('d/m/Y');
+                                                $fechaday3 = $fechaday3->format('Y/m/d');
                                                 Projection::updateOrCreate(array(
                                                     'hour' => $sesion['hora'],
                                                     'release_date' => $fechaday3,
@@ -1599,7 +1599,7 @@ class GetFilms extends Command
 
                                             foreach ($fecha->fecha->sesiones->sesion as $sesion) {
                                                 $fechaday4 = Carbon::createFromFormat('d/m/Y', $fecha->fecha['value']);
-                                                $fechaday4 = $fechaday4->format('d/m/Y');
+                                                $fechaday4 = $fechaday4->format('Y/m/d');
                                                 Projection::updateOrCreate(array(
                                                     'hour' => $sesion['hora'],
                                                     'release_date' => $fechaday4,
@@ -1727,7 +1727,7 @@ class GetFilms extends Command
                                     foreach ($dato->fechas as $fecha) {
                                         foreach ($fecha->fecha->sesiones->sesion as $sesion) {
                                             $fechaday = Carbon::createFromFormat('d/m/Y', $fecha->fecha['value']);
-                                            $fechaday = $fechaday->format('d/m/Y');
+                                            $fechaday = $fechaday->format('Y/m/d');
                                             Projection::updateOrCreate(array(
                                                 'hour' => $sesion['hora'],
                                                 'release_date' => $fechaday,
