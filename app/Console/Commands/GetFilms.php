@@ -151,7 +151,31 @@ class GetFilms extends Command
 
             $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-           
+            $moviesyn = Movie::where([
+                'update' => 1,
+            ])->get();
+
+            if ($moviesyn) {
+                $moviessync = Movie::where(
+                    [
+                        'update' => 1,
+                    ]
+                )->get()->first();
+                $moviesss = $moviessync;
+                $diahoy = date("Y/m/d");
+                $diadate = date("Y/m/d", strtotime($moviesss->date));
+                if( $diadate >=  $diahoy ){
+                    Projection::where(
+                        [
+                            'syncronitation_id' => $syn->id,
+                        ]
+                    )->update(array(
+                        'syncronitation_id' => $id,
+                    ))
+                }
+                
+            }
+
             
 
             $cinema_id = Cinema::where('cinema', $xmlObject->recinto['value'])->first();
@@ -233,7 +257,7 @@ class GetFilms extends Command
 
                                     if ($dato->fechas[0]) {
                                         $fechadayid = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
-                                        $fechadayid = $fechadayid->format('Y-m-d');
+                                        $fechadayid = $fechadayid->format('Y/m/d');
 
                                         $moviefind1 = Movie::where([
                                             'title' => $dato->titulo,
@@ -349,7 +373,7 @@ class GetFilms extends Command
                                     }
                                     if ($dato->fechas[0]) {
                                         $fechadayid2 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
-                                        $fechadayid2 = $fechadayid2->format('Y-m-d');
+                                        $fechadayid2 = $fechadayid2->format('Y/m/d');
                                         $moviefind2 = Movie::where([
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
@@ -489,7 +513,7 @@ class GetFilms extends Command
                                 }
                                 if ($dato->fechas[0]) {
                                     $fechadayid3 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
-                                    $fechadayid3 = $fechadayid3->format('Y-m-d');
+                                    $fechadayid3 = $fechadayid3->format('Y/m/d');
                                     $moviefind3 = Movie::where([
                                         'title' => $dato->titulo,
                                         'buy' => $dato->compra,
@@ -633,7 +657,7 @@ class GetFilms extends Command
 
                                     if ($dato->fechas[0]) {
                                         $fechadayid4 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
-                                        $fechadayid4 = $fechadayid4->format('Y-m-d');
+                                        $fechadayid4 = $fechadayid4->format('Y/m/d');
                                         $moviefind4 = Movie::where([
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
@@ -737,7 +761,7 @@ class GetFilms extends Command
                                     }
                                     if ($dato->fechas[0]) {
                                         $fechadayid5 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
-                                        $fechadayid5 = $fechadayid5->format('Y-m-d');
+                                        $fechadayid5 = $fechadayid5->format('Y/m/d');
                                         $moviefind6 = Movie::where([
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
@@ -871,7 +895,7 @@ class GetFilms extends Command
                                 }
                                 if ($dato->fechas[0]) {
                                     $fechadayid6 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
-                                    $fechadayid6 = $fechadayid6->format('Y-m-d');
+                                    $fechadayid6 = $fechadayid6->format('Y/m/d');
 
                                     $moviefind7 = Movie::where([
                                         'title' => $dato->titulo,
@@ -1022,7 +1046,7 @@ class GetFilms extends Command
                                     }
                                     if ($dato->fechas[0]) {
                                         $fechadayid7 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
-                                        $fechadayid7 = $fechadayid7->format('Y-m-d');
+                                        $fechadayid7 = $fechadayid7->format('Y/m/d');
                                         $moviefind8 = Movie::where([
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
@@ -1130,7 +1154,7 @@ class GetFilms extends Command
                                     }
                                     if ($dato->fechas[0]) {
                                         $fechadayid8 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
-                                        $fechadayid8 = $fechadayid8->format('Y-m-d');
+                                        $fechadayid8 = $fechadayid8->format('Y/m/d');
                                         $moviefind9 = Movie::where([
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
@@ -1267,7 +1291,7 @@ class GetFilms extends Command
                                 }
                                 if ($dato->fechas[0]) {
                                     $fechadayid9 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
-                                    $fechadayid9 = $fechadayid9->format('Y-m-d');
+                                    $fechadayid9 = $fechadayid9->format('Y/m/d');
                                     $moviefind10 = Movie::where([
                                         'title' => $dato->titulo,
                                         'buy' => $dato->compra,
@@ -1415,7 +1439,7 @@ class GetFilms extends Command
                                     }
                                     if ($dato->fechas[0]) {
                                         $fechadayid10 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
-                                        $fechadayid10 = $fechadayid10->format('Y-m-d');
+                                        $fechadayid10 = $fechadayid10->format('Y/m/d');
                                         $moviefind11 = Movie::where([
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
@@ -1517,7 +1541,7 @@ class GetFilms extends Command
                                     }
                                     if ($dato->fechas[0]) {
                                         $fechadayid11 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
-                                        $fechadayid11 = $fechadayid11->format('Y-m-d');
+                                        $fechadayid11 = $fechadayid11->format('Y/m/d');
                                         $moviefind12 = Movie::where([
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
@@ -1651,7 +1675,7 @@ class GetFilms extends Command
                                 }
                                 if ($dato->fechas[0]) {
                                     $fechadayid12 = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
-                                    $fechadayid12 = $fechadayid12->format('Y-m-d');
+                                    $fechadayid12 = $fechadayid12->format('Y/m/d');
                                     $moviefind13 = Movie::where([
                                         'title' => $dato->titulo,
                                         'buy' => $dato->compra,
