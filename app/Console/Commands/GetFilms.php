@@ -151,7 +151,9 @@ class GetFilms extends Command
 
             $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-            Projection::updateOrCreate(array(
+            Projection::updateOrCreate( [
+                'syncronitation_id' => $syn->id,
+                                                ],array(
                 'syncronitation_id' => $syn->id,
             ));
                 
@@ -960,8 +962,10 @@ class GetFilms extends Command
 
             $xmlOrtega = @file_get_contents($ortega, true);
             $xmlObject = simplexml_load_string($xmlOrtega);
-            
-            Projection::updateOrCreate(array(
+
+            Projection::updateOrCreate( [
+                'syncronitation_id' => $syn->id,
+                                                ],array(
                 'syncronitation_id' => $syn->id,
             ));
                 
