@@ -25,7 +25,7 @@ class IndexProjection extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,hour,release_date,movie_id,room_id,cinema_id|nullable',
+            'orderBy' => 'in:id,hour,release_date,movie_id,room_id,cinema_id,syncronitation_id|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

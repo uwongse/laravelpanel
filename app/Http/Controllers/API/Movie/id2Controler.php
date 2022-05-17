@@ -40,12 +40,12 @@ class id2Controler extends Controller
     public function show($id)
     {
 
-       //$idS=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+        $idS=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
         
         $date = Carbon::now()->format("Y/m/d");
 
-        return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ( $date)  {
-            $query->where('release_date','>',$date);
+        return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($idS, $date)  {
+            $query->where('projections.syncronitation_id', $idS->id)->where('release_date','>',$date);
         })->where('id', $id)->with('Projections')->with('Qualification')->with('Actor')->with('Director')->with('projections.cinema')
         ->with('projections.room')->get());
     }

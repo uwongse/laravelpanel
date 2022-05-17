@@ -121,7 +121,7 @@ return [
             'movie_id' => 'Movie',
             'room_id' => 'Room',
             'cinema_id' => 'Cinema',
-        
+            'syncronitation_id' => 'Syncronitation',
             
         ],
     ],
@@ -179,6 +179,21 @@ return [
         ],
     ],
 
+    'syncronitation' => [
+        'title' => 'Syncronitations',
+
+        'actions' => [
+            'index' => 'Syncronitations',
+            'create' => 'New Syncronitation',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'result' => 'Result',
+            
+        ],
+    ],
 
     'admin-user' => [
         'title' => 'Users',

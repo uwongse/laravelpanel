@@ -42,13 +42,13 @@ class ProjectionsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'hour', 'release_date', 'movie_id', 'room_id', 'cinema_id'],
+            ['id', 'hour', 'release_date', 'movie_id', 'room_id', 'cinema_id', 'syncronitation_id'],
 
             // set columns to searchIn
-            ['id', 'hour', 'release_date','movies.title','rooms.room','cinemas.cinema'],
+            ['id', 'hour', 'release_date','movies.title','rooms.room','cinemas.cinema','syncronitations.result'],
 
             function ($query) use ($request) {
-                $query->with(['movie','room','cinema']);
+                $query->with(['movie','room','cinema','syncronitation']);
     
                 // add this line if you want to search by author attributes
                 $query->join('movies', 'movies.id', '=', 'projections.movie_id');
@@ -57,7 +57,7 @@ class ProjectionsController extends Controller
 
                 $query->join('cinemas', 'cinemas.id', '=', 'projections.cinema_id');
     
-              
+                $query->join('syncronitations', 'syncronitations.id', '=', 'projections.syncronitation_id');
                 if($request->has('movies')){
                     $query->whereIn('movie_id', $request->get('movies'));
                 }
@@ -67,7 +67,9 @@ class ProjectionsController extends Controller
                 if($request->has('cinemas')){
                     $query->whereIn('cinema_id', $request->get('cinemas'));
                 }
-                
+                if($request->has('syncronitations')){
+                    $query->whereIn('syncronitation_id', $request->get('syncronitations'));
+                }
             }
         );
 
@@ -84,7 +86,7 @@ class ProjectionsController extends Controller
         'movies' => Movie::all(),
         'rooms' => Room::all(),
         'cinemas' => Cinema::all(),
-       
+        'syncronitations' => Syncronitation::all(),
     ]);
     }
 
@@ -102,8 +104,7 @@ class ProjectionsController extends Controller
         'movies' => Movie::all(),
         'rooms' => Room::all(),
         'cinemas' => Cinema::all(),
-        
-    ]);
+        'syncronitations' => Syncronitation::all()]);
     }
 
     /**
@@ -120,7 +121,7 @@ class ProjectionsController extends Controller
         $sanitized['movie_id'] = $request->getMovieId();
         $sanitized['room_id'] = $request->getRoomId();
         $sanitized['cinema_id'] = $request->getCinemaId();
-       
+        $sanitized['syncronitation_id'] = $request->getSyncronitationId();
 
 
         // Store the Projection
@@ -158,7 +159,7 @@ class ProjectionsController extends Controller
     {
         $this->authorize('admin.projection.edit', $projection);
 
-        $projection->load(['movie', 'room', 'cinema']);
+        $projection->load(['movie', 'room', 'cinema','syncronitation']);
 
 
         return view('admin.projection.edit', [
@@ -166,7 +167,7 @@ class ProjectionsController extends Controller
             'movies' => Movie::all(),
             'rooms' => Room::all(),
             'cinemas' => Cinema::all(),
-        
+            'syncronitations' => Syncronitation::all(),
         ]);
     }
 
@@ -185,7 +186,7 @@ class ProjectionsController extends Controller
         $sanitized['movie_id'] = $request->getMovieId();
         $sanitized['room_id'] = $request->getRoomId();
         $sanitized['cinema_id'] = $request->getCinemaId();
-       
+        $sanitized['syncronitation_id'] = $request->getSyncronitationId();
         // Update changed values Projection
         $projection->update($sanitized);
 

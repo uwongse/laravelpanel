@@ -10,7 +10,7 @@
            <li class="nav-item"><a class="nav-link" href="{{ secure_url('admin/qualifications') }}"><i class="nav-icon icon-ghost"></i> {{ trans('admin.qualification.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ secure_url('admin/rooms') }}"><i class="nav-icon icon-energy"></i> {{ trans('admin.room.title') }}</a></li>
            <li class="nav-item"><a class="nav-link" href="{{ secure_url('admin/slides') }}"><i class="nav-icon icon-puzzle"></i> {{ trans('admin.slide.title') }}</a></li>
-          
+           <li class="nav-item"><a class="nav-link" href="{{ secure_url('admin/syncronitations') }}"><i class="nav-icon icon-plane"></i> {{ trans('admin.syncronitation.title') }}</a></li>
            {{-- Do not delete me :) I'm used for auto-generation menu items --}}
 
             <li class="nav-title">{{ trans('brackets/admin-ui::admin.sidebar.settings') }}</li>

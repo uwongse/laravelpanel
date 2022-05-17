@@ -19,9 +19,9 @@ class ProjectionsControler extends Controller
     {
         $date = Carbon::now()->format("Y/m/d");
 
-        //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+        $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-         return ProjectionIDResource::collection( Projection::where('release_date','=',$date)
+         return ProjectionIDResource::collection( Projection::where('projections.syncronitation_id', $id->id)->where('release_date','=',$date)
         ->with('movie')->with('Room')->with('Cinema')->get());
     }
 
