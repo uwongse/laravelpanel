@@ -77,13 +77,12 @@
                                             </label>
                                         </th>
 
-                     
+                                        <th :column="'movie_id'">{{ trans('admin.projection.columns.movie_id') }}</th>
                                         <th is='sortable' :column="'hour'">{{ trans('admin.projection.columns.hour') }}</th>
                                         <th is='sortable' :column="'release_date'">{{ trans('admin.projection.columns.release_date') }}</th>
-                                        <th :column="'movie_id'">{{ trans('admin.projection.columns.movie_id') }}</th>
                                         <th is='sortable' :column="'room_id'">{{ trans('admin.projection.columns.room_id') }}</th>
                                         <th is='sortable' :column="'cinema_id'">{{ trans('admin.projection.columns.cinema_id') }}</th>
-                                        <th is='sortable' :column="'syncronitation_id'">{{ trans('admin.projection.columns.syncronitation_id') }}</th>
+                                      
 
                                         <th></th>
                                     </tr>
@@ -107,15 +106,15 @@
                                             </label>
                                         </td>
 
-                         
-                                        <td>@{{ item.hour }}</td>
-                                        <td>@{{ item.release_date }}</td>
                                         <td>
                                             @{{ item.movie.title }}
                                         </td>
+                                        <td>@{{ item.hour }}</td>
+                                        <td>@{{ item.release_date }}</td>
+                               
                                         <td>@{{ item.room.room}}</td>
                                         <td>@{{ item.cinema.cinema }}</td>
-                                        <td>@{{ item.syncronitation.result }}</td>
+                                
                                         
                                         <td>
                                             <div class="row no-gutters">

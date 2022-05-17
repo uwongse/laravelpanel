@@ -20,11 +20,11 @@ return new class extends Migration
             $table->bigInteger('movie_id')->unsigned();
             $table->bigInteger('room_id')->unsigned();
             $table->bigInteger('cinema_id')->unsigned();
-            $table->bigInteger('syncronitation_id')->unsigned();
+
             $table->foreign('movie_id')->references('id')->on('movies');
             $table->foreign('room_id')->references('id')->on('rooms');
             $table->foreign('cinema_id')->references('id')->on('cinemas');
-            $table->foreign('syncronitation_id')->references('id')->on('syncronitations');
+
             $table->timestamps();
             $table->softDeletes();
         });

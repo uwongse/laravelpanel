@@ -170,17 +170,3 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     });
 });
 
-/* Auto-generated admin routes */
-Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
-    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
-        Route::prefix('syncronitations')->name('syncronitations/')->group(static function() {
-            Route::get('/',                                             'SyncronitationsController@index')->name('index');
-            Route::get('/create',                                       'SyncronitationsController@create')->name('create');
-            Route::post('/',                                            'SyncronitationsController@store')->name('store');
-            Route::get('/{syncronitation}/edit',                        'SyncronitationsController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'SyncronitationsController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{syncronitation}',                            'SyncronitationsController@update')->name('update');
-            Route::delete('/{syncronitation}',                          'SyncronitationsController@destroy')->name('destroy');
-        });
-    });
-});

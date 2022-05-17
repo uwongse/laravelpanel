@@ -52,12 +52,7 @@ class StoreProjection extends FormRequest
         }
         return null;
     }
-    public function getSyncronitationId(){
-        if ($this->has('syncronitation')){
-            return $this->get('syncronitation')['id'];
-        }
-        return null;
-    }
+    
     /**
     * Modify input data
     *

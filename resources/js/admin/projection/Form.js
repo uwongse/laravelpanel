@@ -10,11 +10,11 @@ Vue.component('projection-form', {
                 movie_id:  '' ,
                 room_id:  '' ,
                 cinema_id:  '' ,
-                syncronitation_id:  '' ,
+  
                 movie: '',
                 room:'',
                 cinema: '',
-                syncronitation:'',
+
             }
         }
     },
@@ -22,7 +22,7 @@ Vue.component('projection-form', {
         'movies',
         'rooms',
         'cinemas',
-        'syncronitations'
+
     ]
 
 });
