@@ -32,7 +32,7 @@ class ProjectionIDResource extends JsonResource
             'buy'=>$this->buy,
             'active'=>$this->active,
             'update'=>$this->update,
-            'projections'=> ProjectionResource::collection(Projection::where('projections.syncronitation_id', $id->id)->where('release_date','>', $date)->where('projections.movie_id',$this->id)->orderBy('release_date', 'asc')
+            'projections'=> ProjectionResource::collection(Projection::where('projections.syncronitation_id', $id->id)->where('release_date','>', $date)->where('projections.movie_id',$this->id)
             ->with('movie')->with('Room')->with('Cinema')->get()),
             'qualification'=>$this->qualification,
             'actors'=>$this->actor,
