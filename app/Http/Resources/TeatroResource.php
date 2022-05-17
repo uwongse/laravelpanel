@@ -16,7 +16,7 @@ class TeatroResource extends JsonResource
      */
     public function toArray($request)
     {
-        $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+        //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
         return [
             'id'=>$this->id,
@@ -32,7 +32,7 @@ class TeatroResource extends JsonResource
             'buy'=>$this->buy,
             'active'=>$this->active,
             'update'=>$this->update,
-            'projections'=> ProjectionResource::collection(Projection::where('projections.syncronitation_id', $id->id)->where('cinema_id', 3)->where('projections.movie_id',$this->id)
+            'projections'=> ProjectionResource::collection(Projection::where('cinema_id', 3)->where('projections.movie_id',$this->id)
             ->with('movie')->with('Room')->with('Cinema')->get()),
             'qualification'=>$this->qualification,
             'actors'=>$this->actor,

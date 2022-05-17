@@ -20,8 +20,8 @@ class MoviesControler extends Controller
     {
         $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-        return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($id)  {
-            $query->where('projections.syncronitation_id', $id->id)->where('cinema_id', 2);
+        return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query )  {
+            $query->where('cinema_id', 2);
         })->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')
         ->get());
     }

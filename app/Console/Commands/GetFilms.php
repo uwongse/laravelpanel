@@ -115,9 +115,7 @@ class GetFilms extends Command
             'cinema' => 'CINE OMY',
         ));
 
-        $syn = Syncronitation::Create(array(
-            'result' => 'ok'
-        ));
+       
 
         function URL_exists($Url)
         {
@@ -151,14 +149,7 @@ class GetFilms extends Command
 
            // $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-           $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->skip(1)->first();
-           if($id){
-               Projection::where( 
-                   'syncronitation_id' , $id->id
-                                                   )->update(
-                   ['syncronitation_id' => $syn->id]
-               );
-           }
+          
        
 
 
@@ -332,7 +323,7 @@ class GetFilms extends Command
                                                         'movie_id' => $movie->id,
                                                         'room_id' => $sesion['sala'],
                                                         'cinema_id' => $cinema_id->id,
-                                                        'syncronitation_id' => $syn->id,
+                                                    
                                                     ));
                                                 }
                                             }
@@ -437,7 +428,7 @@ class GetFilms extends Command
                                                         'movie_id' => $movie->id,
                                                         'room_id' => $sesion['sala'],
                                                         'cinema_id' => $cinema_id->id,
-                                                        'syncronitation_id' => $syn->id,
+                                               
                                                     ));
                                                 }
                                             }
@@ -575,7 +566,7 @@ class GetFilms extends Command
                                                     'movie_id' => $movie->id,
                                                     'room_id' => $sesion['sala'],
                                                     'cinema_id' => $cinema_id->id,
-                                                    'syncronitation_id' => $syn->id,
+                                               
                                                 ));
                                             }
                                         }
@@ -720,7 +711,7 @@ class GetFilms extends Command
                                                     'movie_id' => $movie->id,
                                                     'room_id' => $sesion['sala'],
                                                     'cinema_id' => $cinema_id->id,
-                                                    'syncronitation_id' => $syn->id,
+                                               
                                                 ));
                                             }
                                         }
@@ -818,7 +809,7 @@ class GetFilms extends Command
                                                     'movie_id' => $movie->id,
                                                     'room_id' => $sesion['sala'],
                                                     'cinema_id' => $cinema_id->id,
-                                                    'syncronitation_id' => $syn->id,
+                                          
                                                 ));
                                             }
                                         }
@@ -950,7 +941,7 @@ class GetFilms extends Command
                                                 'movie_id' => $movie->id,
                                                 'room_id' => $sesion['sala'],
                                                 'cinema_id' => $cinema_id->id,
-                                                'syncronitation_id' => $syn->id,
+                                            
                                             ));
                                         }
                                     }
@@ -968,14 +959,7 @@ class GetFilms extends Command
             $fechahoy= date("Y/m/d");
             $xmlOrtega = @file_get_contents($ortega, true);
             $xmlObject = simplexml_load_string($xmlOrtega);
-            $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->skip(1)->first();
-            if($id){
-                Projection::where( 
-                    'syncronitation_id' , $id->id
-                                                    )->update(
-                    ['syncronitation_id' => $syn->id]
-                );
-            }
+
             
            
 
@@ -1120,7 +1104,7 @@ class GetFilms extends Command
                                                         'movie_id' => $movie22->id,
                                                         'room_id' => $sesion['sala'],
                                                         'cinema_id' => $cinema_id,
-                                                        'syncronitation_id' => $syn->id,
+                                                
                                                     ));
                                                 }
                                             }
@@ -1222,7 +1206,7 @@ class GetFilms extends Command
                                                         'movie_id' => $movie22->id,
                                                         'room_id' => $sesion['sala'],
                                                         'cinema_id' => $cinema_id,
-                                                        'syncronitation_id' => $syn->id,
+                                                   
                                                     ));
                                                 }
                                             }
@@ -1361,7 +1345,7 @@ class GetFilms extends Command
                                                     'movie_id' => $movie22->id,
                                                     'room_id' => $sesion['sala'],
                                                     'cinema_id' => $cinema_id,
-                                                    'syncronitation_id' => $syn->id,
+                                               
                                                 ));
                                             }
                                         }
@@ -1507,7 +1491,7 @@ class GetFilms extends Command
                                                     'movie_id' => $movie22->id,
                                                     'room_id' => $sesion['sala'],
                                                     'cinema_id' => $cinema_id,
-                                                    'syncronitation_id' => $syn->id,
+                                                   
                                                 ));
                                             }
                                         }
@@ -1608,7 +1592,7 @@ class GetFilms extends Command
                                                     'movie_id' => $movie22->id,
                                                     'room_id' => $sesion['sala'],
                                                     'cinema_id' => $cinema_id,
-                                                    'syncronitation_id' => $syn->id,
+                                                
                                                 ));
                                             }
                                         }
@@ -1736,7 +1720,7 @@ class GetFilms extends Command
                                                 'movie_id' => $movie22->id,
                                                 'room_id' => $sesion['sala'],
                                                 'cinema_id' => $cinema_id,
-                                                'syncronitation_id' => $syn->id,
+                                             
                                             ));
                                         }
                                     }

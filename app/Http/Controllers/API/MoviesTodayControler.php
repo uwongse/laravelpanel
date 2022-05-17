@@ -18,11 +18,11 @@ class MoviesTodayControler extends Controller
      */
     public function index()
     {
-        $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+        //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
         $date = Carbon::now()->format("Y/m/d");
         
-        return MovieToday::collection( Movie::whereHas('projections', function (Builder $query ) use ($id ,$date)  {
-            $query->where('projections.syncronitation_id', $id->id)->where('release_date','=', $date)->where('cinema_id',"!=", 3);
+        return MovieToday::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
+            $query->where('release_date','=', $date)->where('cinema_id',"!=", 3);
         })->orderBy('premiere', 'desc')->with('Qualification')->with('Actors')->with('Directors')
         ->get());
 
