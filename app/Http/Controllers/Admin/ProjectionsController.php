@@ -102,7 +102,8 @@ class ProjectionsController extends Controller
         'movies' => Movie::all(),
         'rooms' => Room::all(),
         'cinemas' => Cinema::all(),
-    
+        
+    ]);
     }
 
     /**
@@ -119,7 +120,7 @@ class ProjectionsController extends Controller
         $sanitized['movie_id'] = $request->getMovieId();
         $sanitized['room_id'] = $request->getRoomId();
         $sanitized['cinema_id'] = $request->getCinemaId();
-   
+       
 
 
         // Store the Projection
@@ -157,7 +158,7 @@ class ProjectionsController extends Controller
     {
         $this->authorize('admin.projection.edit', $projection);
 
-        $projection->load(['movie', 'room', 'cinema']);
+        $projection->load(['movie', 'room', 'cinema','syncronitation']);
 
 
         return view('admin.projection.edit', [
@@ -165,7 +166,7 @@ class ProjectionsController extends Controller
             'movies' => Movie::all(),
             'rooms' => Room::all(),
             'cinemas' => Cinema::all(),
-          
+        
         ]);
     }
 
@@ -184,7 +185,7 @@ class ProjectionsController extends Controller
         $sanitized['movie_id'] = $request->getMovieId();
         $sanitized['room_id'] = $request->getRoomId();
         $sanitized['cinema_id'] = $request->getCinemaId();
-    
+       
         // Update changed values Projection
         $projection->update($sanitized);
 
