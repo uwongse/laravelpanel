@@ -13,7 +13,7 @@
             :movies="{{$movies->toJson()}}"
             :rooms="{{$rooms->toJson()}}"
             :cinemas="{{$cinemas->toJson()}}"
-            :syncronitations="{{$syncronitations->toJson()}}"
+
             v-cloak
             inline-template>
 

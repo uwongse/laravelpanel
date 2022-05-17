@@ -48,7 +48,7 @@ class ProjectionsController extends Controller
             ['id', 'hour', 'release_date','movies.title','rooms.room','cinemas.cinema'],
 
             function ($query) use ($request) {
-                $query->with(['movie','room','cinema','syncronitation']);
+                $query->with(['movie','room','cinema']);
     
                 // add this line if you want to search by author attributes
                 $query->join('movies', 'movies.id', '=', 'projections.movie_id');
@@ -158,7 +158,7 @@ class ProjectionsController extends Controller
     {
         $this->authorize('admin.projection.edit', $projection);
 
-        $projection->load(['movie', 'room', 'cinema','syncronitation']);
+        $projection->load(['movie', 'room', 'cinema']);
 
 
         return view('admin.projection.edit', [
