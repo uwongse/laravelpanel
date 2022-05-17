@@ -443,34 +443,39 @@ class GetFilms extends Command
                             $cast = $arrayResponse3['cast'];
                             $crew = $arrayResponse3['crew'];
 
-
-                            if ($cast) {
-                                $movie->actors()->detach();
-                                foreach ($cast as $actor) {
-                                    if ($actor['known_for_department'] == 'Acting') {
-
-                                        $arrayActor = Actor::updateOrCreate(array(
-                                            'actor' => $actor['name'],
-
-                                        ));
-
-                                        $movie->actors()->attach($arrayActor->id);
+                            $movieactu = Movie::where([
+                                'update' => 0,
+                            ])->get();
+                            if($movieactu){
+                                if ($cast) {
+                                    $movie->actors()->detach();
+                                    foreach ($cast as $actor) {
+                                        if ($actor['known_for_department'] == 'Acting') {
+    
+                                            $arrayActor = Actor::updateOrCreate(array(
+                                                'actor' => $actor['name'],
+    
+                                            ));
+    
+                                            $movie->actors()->attach($arrayActor->id);
+                                        }
+                                    }
+                                }
+    
+                                if ($crew) {
+                                    $movie->directors()->detach();
+                                    foreach ($crew as $director) {
+                                        if ($director['job'] == 'Director') {
+                                            $arrayDirector = Director::updateOrCreate(array(
+                                                'director' => $director['name'],
+                                            ));
+    
+                                            $movie->directors()->attach($arrayDirector->id);
+                                        }
                                     }
                                 }
                             }
-
-                            if ($crew) {
-                                $movie->directors()->detach();
-                                foreach ($crew as $director) {
-                                    if ($director['job'] == 'Director') {
-                                        $arrayDirector = Director::updateOrCreate(array(
-                                            'director' => $director['name'],
-                                        ));
-
-                                        $movie->directors()->attach($arrayDirector->id);
-                                    }
-                                }
-                            }
+                           
                         } else {
                             if ($dato->estreno) {
                                 $date3 = Carbon::parse($dato->estreno);
@@ -823,7 +828,10 @@ class GetFilms extends Command
                             $cast = $arrayResponse3['cast'];
                             $crew = $arrayResponse3['crew'];
 
-
+                            $movieactu = Movie::where([
+                                'update' => 0,
+                            ])->get();
+                            if($movieactu){
                             if ($cast) {
                                 $movie->actors()->detach();
                                 foreach ($cast as $actor) {
@@ -851,6 +859,7 @@ class GetFilms extends Command
                                     }
                                 }
                             }
+                        }
                         } else {
                             if ($dato->estreno) {
                                 $date6 = Carbon::parse($dato->estreno);
@@ -1221,7 +1230,10 @@ class GetFilms extends Command
                             $cast = $arrayResponse3['cast'];
                             $crew = $arrayResponse3['crew'];
 
-
+                            $movieactu = Movie::where([
+                                'update' => 0,
+                            ])->get();
+                            if($movieactu){
                             if ($cast) {
                                 $movie22->actors()->detach();
                                 foreach ($cast as $actor) {
@@ -1248,6 +1260,7 @@ class GetFilms extends Command
                                     }
                                 }
                             }
+                        }
                         } else {
                             if ($dato->estreno) {
                                 $date9 = Carbon::parse($dato->estreno);
@@ -1605,7 +1618,10 @@ class GetFilms extends Command
 
                             $cast = $arrayResponse3['cast'];
                             $crew = $arrayResponse3['crew'];
-
+                            $movieactu = Movie::where([
+                                'update' => 0,
+                            ])->get();
+                            if($movieactu){
 
                             if ($cast) {
                                 $movie22->actors()->detach();
@@ -1633,6 +1649,7 @@ class GetFilms extends Command
                                     }
                                 }
                             }
+                        }
                         } else {
                             if ($dato->estreno) {
                                 $date12 = Carbon::parse($dato->estreno);
