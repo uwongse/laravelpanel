@@ -108,36 +108,3 @@
     </div>
 </div>
 
-<div class="card">
-    <div class="card-header">
-        <i class="fa fa-user"></i> syncronitation </span>
-    </div>
-
-    <div class="card-block">
-        <div class="form-group row align-items-center"
-             :class="{'has-danger': errors.has('syncronitation_id'), 'has-success': this.fields.syncronitation_id && this.fields.syncronitation_id.valid }">
-            <label for="syncronitation_id"
-                   class="col-form-label text-center col-md-4 col-lg-3">{{ trans('admin.projection.columns.syncronitation_id') }}</label>
-            <div class="col-md-8 col-lg-9">
-
-                <multiselect
-                        v-model="form.syncronitation"
-                        :options="syncronitations"
-                        :multiple="false"
-                        track-by="id"
-                        label="result"
-                        tag-placeholder="{{ __('Select syncronitation') }}"
-                        placeholder="{{ __('syncronitation') }}">
-                </multiselect>
-
-                <div v-if="errors.has('syncronitation_id')" class="form-control-feedback form-text" v-cloak>@{{
-                    errors.first('syncronitation_id') }}
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-

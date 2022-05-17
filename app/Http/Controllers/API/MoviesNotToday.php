@@ -20,10 +20,10 @@ class MoviesNotToday extends Controller
     {
         $date = Carbon::now()->format("Y/m/d");
 
-        $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+        //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-        return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($id ,$date)  {
-            $query->where('projections.syncronitation_id', $id->id)->where('release_date','>', $date);
+        return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
+            $query->where('release_date','>', $date);
         })->orderBy('date', 'asc')->orderBy('active', 'desc')->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')->get());
     }
 

@@ -80,10 +80,13 @@
                                         <th :column="'movie_id'">{{ trans('admin.projection.columns.movie_id') }}</th>
                                         <th is='sortable' :column="'hour'">{{ trans('admin.projection.columns.hour') }}</th>
                                         <th is='sortable' :column="'release_date'">{{ trans('admin.projection.columns.release_date') }}</th>
+<<<<<<< HEAD
                                        
+=======
+>>>>>>> 95e33ebc7d5d1481925b5058352945a2b5fa8736
                                         <th is='sortable' :column="'room_id'">{{ trans('admin.projection.columns.room_id') }}</th>
                                         <th is='sortable' :column="'cinema_id'">{{ trans('admin.projection.columns.cinema_id') }}</th>
-                                        <th is='sortable' :column="'syncronitation_id'">{{ trans('admin.projection.columns.syncronitation_id') }}</th>
+                                      
 
                                         <th></th>
                                     </tr>
@@ -106,6 +109,7 @@
                                             <label class="form-check-label" :for="'enabled' + item.id">
                                             </label>
                                         </td>
+<<<<<<< HEAD
                                         <td>
                                             @{{ item.movie.title }}
                                         </td>
@@ -113,9 +117,18 @@
                                         <td>@{{ item.hour }}</td>
                                         <td>@{{ item.release_date }}</td>
                                     
+=======
+
+                                        <td>
+                                            @{{ item.movie.title }}
+                                        </td>
+                                        <td>@{{ item.hour }}</td>
+                                        <td>@{{ item.release_date }}</td>
+                               
+>>>>>>> 95e33ebc7d5d1481925b5058352945a2b5fa8736
                                         <td>@{{ item.room.room}}</td>
                                         <td>@{{ item.cinema.cinema }}</td>
-                                        <td>@{{ item.syncronitation.result }}</td>
+                                
                                         
                                         <td>
                                             <div class="row no-gutters">

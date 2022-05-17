@@ -80,7 +80,6 @@ $factory->define(App\Models\Projection::class, static function (Faker\Generator 
         'movie_id' => $faker->sentence,
         'room_id' => $faker->sentence,
         'cinema_id' => $faker->sentence,
-        'syncronitation_id' => $faker->sentence,
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
@@ -119,17 +118,6 @@ $factory->define(App\Models\Slide::class, static function (Faker\Generator $fake
         'image' => $faker->sentence,
         'active' => $faker->boolean(),
         'updated' => $faker->dateTime,
-        'created_at' => $faker->dateTime,
-        'updated_at' => $faker->dateTime,
-        'deleted_at' => null,
-        
-        
-    ];
-});
-/** @var  \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Models\Syncronitation::class, static function (Faker\Generator $faker) {
-    return [
-        'result' => $faker->text(),
         'created_at' => $faker->dateTime,
         'updated_at' => $faker->dateTime,
         'deleted_at' => null,
