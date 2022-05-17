@@ -23,7 +23,7 @@ class MoviesNotToday extends Controller
         $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
         return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($id ,$date)  {
-            $query->where('projections.syncronitation_id', $id->id)->where('release_date','>', $date);
+            $query->where('projections.syncronitation_id', $id->id)->where('release_date','>', $date)->orderBy('projections.release_date', 'asc');
         })->with('Qualification')->with('Actor')->with('Director')
         ->get());
     }
