@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\TeatroResource;
 use Illuminate\Http\Request;
 use App\Models\Syncronitation;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 class id3Controler extends Controller
 {
