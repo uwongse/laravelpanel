@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\API\ProjectionsControler;
+
 use App\Http\Controllers\API\MoviesControler;
 use App\Http\Controllers\API\TeatroControler;
 use App\Http\Controllers\API\MoviesTodayControler;
@@ -31,7 +31,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::get('projections', [ProjectionsControler::class, 'index']);
+
 
 Route::get('avenida', [MoviesControler::class, 'index']);
 Route::get('cineortega', [MoviesControler::class, 'index2']);
