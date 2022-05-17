@@ -18,7 +18,7 @@ class MoviesControler extends Controller
      */
     public function index()
     {
-        $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+        //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query )  {
             $query->where('cinema_id', 2);
