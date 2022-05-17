@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Movie;
 use Illuminate\Database\Eloquent\Builder;
-use App\Models\Syncronitation;
+
 use App\Http\Resources\MoviesAllResource;
 
 class MoviesControler extends Controller
@@ -32,7 +32,7 @@ class MoviesControler extends Controller
      */
     public function index2()
     {
-        $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+        //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query )   {
             $query->where('cinema_id', 1);
@@ -46,7 +46,7 @@ class MoviesControler extends Controller
      */
     public function index3()
     {
-        $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+       // $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query )   {
             $query->where('cinema_id', 3);
