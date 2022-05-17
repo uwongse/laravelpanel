@@ -65,7 +65,7 @@
                                             </label>
                                         </th>
 
-                                        <th is='sortable' :column="'id'">{{ trans('admin.movie.columns.id') }}</th>
+                                     
                                         <th is='sortable' :column="'title'">{{ trans('admin.movie.columns.title') }}</th>
                                         <th :column="'qualification'">{{ trans('admin.qualification.columns.qualification') }}</th>
                                         <th :column="'actor'">{{ trans('admin.actor.columns.actor') }}</th>
@@ -93,7 +93,7 @@
                                             </label>
                                         </td>
 
-                                    <td>@{{ item.id }}</td>
+                                
                                         <td>@{{ item.title }}</td>
                                         <td>@{{ item.qualification.qualification }}</td>
 

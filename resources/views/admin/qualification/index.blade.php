@@ -49,7 +49,7 @@
                                             </label>
                                         </th>
 
-                                        <th is='sortable' :column="'id'">{{ trans('admin.qualification.columns.id') }}</th>
+                                       
                                         <th is='sortable' :column="'qualification'">{{ trans('admin.qualification.columns.qualification') }}</th>
                                         <th is='sortable' :column="'abbreviation'">{{ trans('admin.qualification.columns.abbreviation') }}</th>
                                         <th is='sortable' :column="'image'">{{ trans('admin.qualification.columns.image') }}</th>
@@ -76,7 +76,7 @@
                                             </label>
                                         </td>
 
-                                    <td>@{{ item.id }}</td>
+                             
                                         <td>@{{ item.qualification }}</td>
                                         <td>@{{ item.abbreviation }}</td>
                                         <td>@{{ item.image }}</td>

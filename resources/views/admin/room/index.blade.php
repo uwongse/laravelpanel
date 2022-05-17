@@ -49,7 +49,7 @@
                                             </label>
                                         </th>
 
-                                        <th is='sortable' :column="'id'">{{ trans('admin.room.columns.id') }}</th>
+                                
                                         <th is='sortable' :column="'room'">{{ trans('admin.room.columns.room') }}</th>
 
                                         <th></th>
@@ -74,7 +74,6 @@
                                             </label>
                                         </td>
 
-                                    <td>@{{ item.id }}</td>
                                         <td>@{{ item.room }}</td>
                                         
                                         <td>

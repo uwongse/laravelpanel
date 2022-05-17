@@ -51,7 +51,7 @@
                                             </label>
                                         </th>
 
-                                        <th is='sortable' :column="'id'">{{ trans('admin.slide.columns.id') }}</th>
+                          
                                         <th is='sortable' :column="'title'">{{ trans('admin.slide.columns.title') }}</th>
 
                                         <th is='sortable' :column="'url'">{{ trans('url') }}</th>
@@ -80,7 +80,7 @@
                                             </label>
                                         </td>
 
-                                    <td>@{{ item.id }}</td>
+                             
                                         <td>@{{ item.title }}</td>
                                         <td>@{{ item.url }}</td>
                                         <td>@{{ item.active }}</td>

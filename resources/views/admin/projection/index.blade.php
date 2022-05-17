@@ -77,7 +77,7 @@
                                             </label>
                                         </th>
 
-                                        <th is='sortable' :column="'id'">{{ trans('admin.projection.columns.id') }}</th>
+                     
                                         <th is='sortable' :column="'hour'">{{ trans('admin.projection.columns.hour') }}</th>
                                         <th is='sortable' :column="'release_date'">{{ trans('admin.projection.columns.release_date') }}</th>
                                         <th :column="'movie_id'">{{ trans('admin.projection.columns.movie_id') }}</th>
@@ -107,7 +107,7 @@
                                             </label>
                                         </td>
 
-                                    <td>@{{ item.id }}</td>
+                         
                                         <td>@{{ item.hour }}</td>
                                         <td>@{{ item.release_date }}</td>
                                         <td>

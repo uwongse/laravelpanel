@@ -49,7 +49,6 @@
                                             </label>
                                         </th>
 
-                                        <th is='sortable' :column="'id'">{{ trans('admin.syncronitation.columns.id') }}</th>
                                         <th is='sortable' :column="'result'">{{ trans('admin.syncronitation.columns.result') }}</th>
                                         <th></th>
                                     </tr>
@@ -73,7 +72,7 @@
                                             </label>
                                         </td>
 
-                                    <td>@{{ item.id }}</td>
+                               
                                     <td>@{{ item.result }}</td>
                                         <td>
                                             <div class="row no-gutters">
