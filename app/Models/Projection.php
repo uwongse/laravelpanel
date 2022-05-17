@@ -14,7 +14,7 @@ class Projection extends Model
         'movie_id',
         'room_id',
         'cinema_id',
-        'syncronitation_id',
+
     
     ];
     
@@ -43,7 +43,5 @@ class Projection extends Model
       public function cinema() {
         return $this->belongsTo('App\Models\Cinema');
       }
-      public function Syncronitation() {
-        return $this->belongsTo('App\Models\Syncronitation');
-      }
+
 }

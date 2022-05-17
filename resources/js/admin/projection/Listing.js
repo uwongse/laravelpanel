@@ -17,7 +17,7 @@ Vue.component('projection-listing', {
                 movies: [],
                 rooms: [],
                 cinemas: [],
-                syncronitations: [],
+
             },
         }
     },
@@ -46,9 +46,6 @@ Vue.component('projection-listing', {
         }, showAuthorsFilter4: function (newVal, oldVal) {
             this.authorsMultiselect4 = [];
         },
-        authorsMultiselect4: function(newVal, oldVal) {
-            this.filters.syncronitations = newVal.map(function(object) { return object['key']; });
-            this.filter('syncronitations', this.filters.syncronitations);
-        }
+        
     }
 });
