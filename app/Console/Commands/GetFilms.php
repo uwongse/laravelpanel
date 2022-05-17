@@ -159,8 +159,8 @@ class GetFilms extends Command
                    ['syncronitation_id' => $syn->id]
                );
            }
-                
-            
+       
+
 
             
 
@@ -244,6 +244,8 @@ class GetFilms extends Command
                                     if ($dato->fechas[0]) {
                                         $fechadayid = Carbon::createFromFormat('d/m/Y', $dato->fechas[0]->fecha['value']);
                                         $fechadayid = $fechadayid->format('Y/m/d');
+                                                 
+                                      
 
                                         $moviefind1 = Movie::where([
                                             'title' => $dato->titulo,
