@@ -1041,21 +1041,21 @@ class GetFilms extends Command
 
                         //$headers = array('Accept' => 'application/json');
                         // $query = array('query' => urlencode(rtrim(rtrim( rtrim($movie->titulo, " 3D"), "-VO-" ), " V.O.S.")), 'language' => 'es');
-                        $response = Http::get('https://api.themoviedb.org/3/search/movie?api_key=308fcbf28834111e1abaf741ad70b08d&query=' . $dato->titulo . '&language=es');
-                        $arrayResponse = $response->json();
+                        $response22 = Http::get('https://api.themoviedb.org/3/search/movie?api_key=308fcbf28834111e1abaf741ad70b08d&query=' . $dato->titulo . '&language=es');
+                        $arrayResponse22 = $response22->json();
 
-                        $result = current($arrayResponse['results']);
+                        $result22 = current($arrayResponse22['results']);
 
-                        if ($result) {
+                        if ($result22) {
                             //$this->info(print_r( $result['id'], true));
                             
-                            $response4 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
+                            $response4 = Http::get('https://api.themoviedb.org/3/movie/' . $result22['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
                             $arrayResponse4 = $response4->json();
 
                             $cast3 = $arrayResponse4['cast'];
                             $crew3 = $arrayResponse4['crew'];
 
-                            $response2 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
+                            $response2 = Http::get('https://api.themoviedb.org/3/movie/' . $result22['id'] . '?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
                             $arrayResponse2 = $response2->json();
 
                             $pathFondo = $arrayResponse2['backdrop_path'];
@@ -1464,20 +1464,20 @@ class GetFilms extends Command
 
                         //$headers = array('Accept' => 'application/json');
                         // $query = array('query' => urlencode(rtrim(rtrim( rtrim($movie->titulo, " 3D"), "-VO-" ), " V.O.S.")), 'language' => 'es');
-                        $response = Http::get('https://api.themoviedb.org/3/search/movie?api_key=308fcbf28834111e1abaf741ad70b08d&query=' . $dato->titulo . '&language=es');
-                        $arrayResponse = $response->json();
+                        $response22 = Http::get('https://api.themoviedb.org/3/search/movie?api_key=308fcbf28834111e1abaf741ad70b08d&query=' . $dato->titulo . '&language=es');
+                        $arrayResponse22 = $response22->json();
 
-                        $result = current($arrayResponse['results']);
+                        $result22 = current($arrayResponse22['results']);
 
-                        if ($result) {
+                        if ($result22) {
                             //$this->info(print_r( $result['id'], true));
-                            $response4 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
+                            $response4 = Http::get('https://api.themoviedb.org/3/movie/' . $result22['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
                             $arrayResponse4 = $response4->json();
 
-                            $cast4 = $arrayResponse4['cast'];
-                            $crew4 = $arrayResponse4['crew'];
+                            $cast3 = $arrayResponse4['cast'];
+                            $crew3 = $arrayResponse4['crew'];
 
-                            $response2 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
+                            $response2 = Http::get('https://api.themoviedb.org/3/movie/' . $result22['id'] . '?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
                             $arrayResponse2 = $response2->json();
 
                             $pathFondo = $arrayResponse2['backdrop_path'];
@@ -1567,7 +1567,7 @@ class GetFilms extends Command
                                                 $movie10->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
                                                 $movie22 = $movie10;
 
-                                                if ($cast4) {
+                                                if ($cast3) {
                                                     $movie22->actors()->detach();
                                                     foreach ($cast as $actor) {
                                                         if ($actor['known_for_department'] == 'Acting') {
@@ -1581,7 +1581,7 @@ class GetFilms extends Command
                                                     }
                                                 }
                     
-                                                if ($crew4) {
+                                                if ($crew3) {
                                                     $movie22->directors()->detach();
                                                     foreach ($crew as $director) {
                                                         if ($director['job'] == 'Director') {
@@ -1693,7 +1693,7 @@ class GetFilms extends Command
 
                                                 $movie22 = $movie11;
                                                 
-                                                if ($cast4) {
+                                                if ($cast3) {
                                                     $movie22->actors()->detach();
                                                     foreach ($cast as $actor) {
                                                         if ($actor['known_for_department'] == 'Acting') {
@@ -1707,7 +1707,7 @@ class GetFilms extends Command
                                                     }
                                                 }
                     
-                                                if ($crew4) {
+                                                if ($crew3) {
                                                     $movie22->directors()->detach();
                                                     foreach ($crew as $director) {
                                                         if ($director['job'] == 'Director') {
