@@ -190,6 +190,11 @@ class GetFilms extends Command
                         $result = current($arrayResponse['results']);
 
                         if ($result) {
+                            $response3 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
+                            $arrayResponse3 = $response3->json();
+
+                            $cast = $arrayResponse3['cast'];
+                            $crew = $arrayResponse3['crew'];
                             //$this->info(print_r( $result['id'], true));
 
                             $response2 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
@@ -403,6 +408,35 @@ class GetFilms extends Command
                                                 $movie2->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                                 $movie = $movie2;
+
+
+                                                if ($cast) {
+                                                    $movie->actors()->detach();
+                                                    foreach ($cast as $actor) {
+                                                        if ($actor['known_for_department'] == 'Acting') {
+                    
+                                                            $arrayActor = Actor::updateOrCreate(array(
+                                                                'actor' => $actor['name'],
+                    
+                                                            ));
+                    
+                                                            $movie->actors()->attach($arrayActor->id);
+                                                        }
+                                                    }
+                                                }
+                    
+                                                if ($crew) {
+                                                    $movie->directors()->detach();
+                                                    foreach ($crew as $director) {
+                                                        if ($director['job'] == 'Director') {
+                                                            $arrayDirector = Director::updateOrCreate(array(
+                                                                'director' => $director['name'],
+                                                            ));
+                    
+                                                            $movie->directors()->attach($arrayDirector->id);
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
 
@@ -437,44 +471,9 @@ class GetFilms extends Command
                                 }
                             }
 
-                            $response3 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
-                            $arrayResponse3 = $response3->json();
+                          
 
-                            $cast = $arrayResponse3['cast'];
-                            $crew = $arrayResponse3['crew'];
-
-                            $movieactu = Movie::where([
-                                'update' => 0,
-                            ])->get();
-                            if($movieactu){
-                                if ($cast) {
-                                    $movie->actors()->detach();
-                                    foreach ($cast as $actor) {
-                                        if ($actor['known_for_department'] == 'Acting') {
-    
-                                            $arrayActor = Actor::updateOrCreate(array(
-                                                'actor' => $actor['name'],
-    
-                                            ));
-    
-                                            $movie->actors()->attach($arrayActor->id);
-                                        }
-                                    }
-                                }
-    
-                                if ($crew) {
-                                    $movie->directors()->detach();
-                                    foreach ($crew as $director) {
-                                        if ($director['job'] == 'Director') {
-                                            $arrayDirector = Director::updateOrCreate(array(
-                                                'director' => $director['name'],
-                                            ));
-    
-                                            $movie->directors()->attach($arrayDirector->id);
-                                        }
-                                    }
-                                }
-                            }
+                           
                            
                         } else {
                             if ($dato->estreno) {
@@ -549,6 +548,7 @@ class GetFilms extends Command
                                             $movie3->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                             $movie = $movie3;
+                            
                                         }
                                     }
 
@@ -606,6 +606,11 @@ class GetFilms extends Command
 
                         if ($result) {
                             //$this->info(print_r( $result['id'], true));
+                            $response3 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
+                            $arrayResponse3 = $response3->json();
+
+                            $cast2 = $arrayResponse3['cast'];
+                            $crew2 = $arrayResponse3['crew'];
 
                             $response2 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
                             $arrayResponse2 = $response2->json();
@@ -700,6 +705,33 @@ class GetFilms extends Command
                                                 $movie4->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie4->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
                                                 $movie = $movie4;
+                                                if ($cast2) {
+                                                    $movie->actors()->detach();
+                                                    foreach ($cast as $actor) {
+                                                        if ($actor['known_for_department'] == 'Acting') {
+                    
+                                                            $arrayActor = Actor::updateOrCreate(array(
+                                                                'actor' => $actor['name'],
+                    
+                                                            ));
+                    
+                                                            $movie->actors()->attach($arrayActor->id);
+                                                        }
+                                                    }
+                                                }
+                    
+                                                if ($crew2) {
+                                                    $movie->directors()->detach();
+                                                    foreach ($crew as $director) {
+                                                        if ($director['job'] == 'Director') {
+                                                            $arrayDirector = Director::updateOrCreate(array(
+                                                                'director' => $director['name'],
+                                                            ));
+                    
+                                                            $movie->directors()->attach($arrayDirector->id);
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
 
@@ -795,6 +827,33 @@ class GetFilms extends Command
 
                                                 $movie5->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie = $movie5;
+                                                if ($cast2) {
+                                                    $movie->actors()->detach();
+                                                    foreach ($cast as $actor) {
+                                                        if ($actor['known_for_department'] == 'Acting') {
+                    
+                                                            $arrayActor = Actor::updateOrCreate(array(
+                                                                'actor' => $actor['name'],
+                    
+                                                            ));
+                    
+                                                            $movie->actors()->attach($arrayActor->id);
+                                                        }
+                                                    }
+                                                }
+                    
+                                                if ($crew2) {
+                                                    $movie->directors()->detach();
+                                                    foreach ($crew as $director) {
+                                                        if ($director['job'] == 'Director') {
+                                                            $arrayDirector = Director::updateOrCreate(array(
+                                                                'director' => $director['name'],
+                                                            ));
+                    
+                                                            $movie->directors()->attach($arrayDirector->id);
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
 
@@ -821,45 +880,7 @@ class GetFilms extends Command
                                     }
                                 }
                             }
-
-                            $response3 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
-                            $arrayResponse3 = $response3->json();
-
-                            $cast = $arrayResponse3['cast'];
-                            $crew = $arrayResponse3['crew'];
-
-                            $movieactu = Movie::where([
-                                'update' => 0,
-                            ])->get();
-                            if($movieactu){
-                            if ($cast) {
-                                $movie->actors()->detach();
-                                foreach ($cast as $actor) {
-                                    if ($actor['known_for_department'] == 'Acting') {
-
-                                        $arrayActor = Actor::updateOrCreate(array(
-                                            'actor' => $actor['name'],
-
-                                        ));
-
-                                        $movie->actors()->attach($arrayActor->id);
-                                    }
-                                }
-                            }
-
-                            if ($crew) {
-                                $movie->directors()->detach();
-                                foreach ($crew as $director) {
-                                    if ($director['job'] == 'Director') {
-                                        $arrayDirector = Director::updateOrCreate(array(
-                                            'director' => $director['name'],
-                                        ));
-
-                                        $movie->directors()->attach($arrayDirector->id);
-                                    }
-                                }
-                            }
-                        }
+                        
                         } else {
                             if ($dato->estreno) {
                                 $date6 = Carbon::parse($dato->estreno);
@@ -999,6 +1020,12 @@ class GetFilms extends Command
 
                         if ($result) {
                             //$this->info(print_r( $result['id'], true));
+                            
+                            $response3 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
+                            $arrayResponse3 = $response3->json();
+
+                            $cast = $arrayResponse3['cast'];
+                            $crew = $arrayResponse3['crew'];
 
                             $response2 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
                             $arrayResponse2 = $response2->json();
@@ -1091,6 +1118,32 @@ class GetFilms extends Command
                                                 $movie7->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie7->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
                                                 $movie22 = $movie7;
+                                                if ($cast) {
+                                                    $movie22->actors()->detach();
+                                                    foreach ($cast as $actor) {
+                                                        if ($actor['known_for_department'] == 'Acting') {
+                                                            $arrayActor2 = Actor::updateOrCreate(array(
+                                                                'actor' => $actor['name'],
+                    
+                                                            ));
+                    
+                                                            $movie22->actors()->attach($arrayActor2->id);
+                                                        }
+                                                    }
+                                                }
+                    
+                                                if ($crew) {
+                                                    $movie22->directors()->detach();
+                                                    foreach ($crew as $director) {
+                                                        if ($director['job'] == 'Director') {
+                                                            $arrayDirector2 = Director::updateOrCreate(array(
+                                                                'director' => $director['name'],
+                                                            ));
+                    
+                                                            $movie22->directors()->attach($arrayDirector2->id);
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
 
@@ -1192,6 +1245,32 @@ class GetFilms extends Command
                                                 $movie8->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                                 $movie22 = $movie8;
+                                                if ($cast) {
+                                                    $movie22->actors()->detach();
+                                                    foreach ($cast as $actor) {
+                                                        if ($actor['known_for_department'] == 'Acting') {
+                                                            $arrayActor2 = Actor::updateOrCreate(array(
+                                                                'actor' => $actor['name'],
+                    
+                                                            ));
+                    
+                                                            $movie22->actors()->attach($arrayActor2->id);
+                                                        }
+                                                    }
+                                                }
+                    
+                                                if ($crew) {
+                                                    $movie22->directors()->detach();
+                                                    foreach ($crew as $director) {
+                                                        if ($director['job'] == 'Director') {
+                                                            $arrayDirector2 = Director::updateOrCreate(array(
+                                                                'director' => $director['name'],
+                                                            ));
+                    
+                                                            $movie22->directors()->attach($arrayDirector2->id);
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
 
@@ -1224,43 +1303,8 @@ class GetFilms extends Command
                                 }
                             }
 
-                            $response3 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
-                            $arrayResponse3 = $response3->json();
 
-                            $cast = $arrayResponse3['cast'];
-                            $crew = $arrayResponse3['crew'];
-
-                            $movieactu = Movie::where([
-                                'update' => 0,
-                            ])->get();
-                            if($movieactu){
-                            if ($cast) {
-                                $movie22->actors()->detach();
-                                foreach ($cast as $actor) {
-                                    if ($actor['known_for_department'] == 'Acting') {
-                                        $arrayActor2 = Actor::updateOrCreate(array(
-                                            'actor' => $actor['name'],
-
-                                        ));
-
-                                        $movie22->actors()->attach($arrayActor2->id);
-                                    }
-                                }
-                            }
-
-                            if ($crew) {
-                                $movie22->directors()->detach();
-                                foreach ($crew as $director) {
-                                    if ($director['job'] == 'Director') {
-                                        $arrayDirector2 = Director::updateOrCreate(array(
-                                            'director' => $director['name'],
-                                        ));
-
-                                        $movie22->directors()->attach($arrayDirector2->id);
-                                    }
-                                }
-                            }
-                        }
+                           
                         } else {
                             if ($dato->estreno) {
                                 $date9 = Carbon::parse($dato->estreno);
@@ -1399,6 +1443,11 @@ class GetFilms extends Command
 
                         if ($result) {
                             //$this->info(print_r( $result['id'], true));
+                            $response3 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
+                            $arrayResponse3 = $response3->json();
+
+                            $cast2 = $arrayResponse3['cast'];
+                            $crew2 = $arrayResponse3['crew'];
 
                             $response2 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
                             $arrayResponse2 = $response2->json();
@@ -1489,6 +1538,33 @@ class GetFilms extends Command
                                                 $movie10->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie10->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
                                                 $movie22 = $movie10;
+
+                                                if ($cast2) {
+                                                    $movie22->actors()->detach();
+                                                    foreach ($cast as $actor) {
+                                                        if ($actor['known_for_department'] == 'Acting') {
+                                                            $arrayActor2 = Actor::updateOrCreate(array(
+                                                                'actor' => $actor['name'],
+                    
+                                                            ));
+                    
+                                                            $movie22->actors()->attach($arrayActor2->id);
+                                                        }
+                                                    }
+                                                }
+                    
+                                                if ($crew2) {
+                                                    $movie22->directors()->detach();
+                                                    foreach ($crew as $director) {
+                                                        if ($director['job'] == 'Director') {
+                                                            $arrayDirector2 = Director::updateOrCreate(array(
+                                                                'director' => $director['name'],
+                                                            ));
+                    
+                                                            $movie22->directors()->attach($arrayDirector2->id);
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
 
@@ -1588,6 +1664,33 @@ class GetFilms extends Command
                                                 $movie11->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
 
                                                 $movie22 = $movie11;
+                                                
+                                                if ($cast2) {
+                                                    $movie22->actors()->detach();
+                                                    foreach ($cast as $actor) {
+                                                        if ($actor['known_for_department'] == 'Acting') {
+                                                            $arrayActor2 = Actor::updateOrCreate(array(
+                                                                'actor' => $actor['name'],
+                    
+                                                            ));
+                    
+                                                            $movie22->actors()->attach($arrayActor2->id);
+                                                        }
+                                                    }
+                                                }
+                    
+                                                if ($crew2) {
+                                                    $movie22->directors()->detach();
+                                                    foreach ($crew as $director) {
+                                                        if ($director['job'] == 'Director') {
+                                                            $arrayDirector2 = Director::updateOrCreate(array(
+                                                                'director' => $director['name'],
+                                                            ));
+                    
+                                                            $movie22->directors()->attach($arrayDirector2->id);
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
 
@@ -1613,43 +1716,7 @@ class GetFilms extends Command
                                 }
                             }
 
-                            $response3 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
-                            $arrayResponse3 = $response3->json();
 
-                            $cast = $arrayResponse3['cast'];
-                            $crew = $arrayResponse3['crew'];
-                            $movieactu = Movie::where([
-                                'update' => 0,
-                            ])->get();
-                            if($movieactu){
-
-                            if ($cast) {
-                                $movie22->actors()->detach();
-                                foreach ($cast as $actor) {
-                                    if ($actor['known_for_department'] == 'Acting') {
-                                        $arrayActor2 = Actor::updateOrCreate(array(
-                                            'actor' => $actor['name'],
-
-                                        ));
-
-                                        $movie22->actors()->attach($arrayActor2->id);
-                                    }
-                                }
-                            }
-
-                            if ($crew) {
-                                $movie22->directors()->detach();
-                                foreach ($crew as $director) {
-                                    if ($director['job'] == 'Director') {
-                                        $arrayDirector2 = Director::updateOrCreate(array(
-                                            'director' => $director['name'],
-                                        ));
-
-                                        $movie22->directors()->attach($arrayDirector2->id);
-                                    }
-                                }
-                            }
-                        }
                         } else {
                             if ($dato->estreno) {
                                 $date12 = Carbon::parse($dato->estreno);
