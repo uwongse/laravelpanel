@@ -24,7 +24,7 @@ class MoviesNotToday extends Controller
 
         return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
             $query->where('release_date','>', $date);
-        })->with('projections')->with('Qualification')->with('Actor')->with('Director')->sortBy('projections.release_date',SORT_REGULAR,false)->get());
+        })->with('projections')->with('Qualification')->with('Actor')->with('Director')->get()->sortBy('projections.release_date',SORT_REGULAR,false));
     }
 
     /**
