@@ -304,6 +304,33 @@ class GetFilms extends Command
                                                 $movie1->addMediaFromUrl(RemoveSpecial($dato->caratula))->toMediaCollection('posters');
                                                 $movie1->addMediaFromUrl('https://image.tmdb.org/t/p/original' . $pathFondo)->toMediaCollection('backgrounds');
                                                 $movie = $movie1;
+                                                if ($cast) {
+                                                    $movie->actors()->detach();
+                                                    foreach ($cast as $actor) {
+                                                        if ($actor['known_for_department'] == 'Acting') {
+                    
+                                                            $arrayActor = Actor::updateOrCreate(array(
+                                                                'actor' => $actor['name'],
+                    
+                                                            ));
+                    
+                                                            $movie->actors()->attach($arrayActor->id);
+                                                        }
+                                                    }
+                                                }
+                    
+                                                if ($crew) {
+                                                    $movie->directors()->detach();
+                                                    foreach ($crew as $director) {
+                                                        if ($director['job'] == 'Director') {
+                                                            $arrayDirector = Director::updateOrCreate(array(
+                                                                'director' => $director['name'],
+                                                            ));
+                    
+                                                            $movie->directors()->attach($arrayDirector->id);
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                         $this->info(print_r($dato->fechas[0]->fecha['value'], true));
