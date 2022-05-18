@@ -735,7 +735,7 @@ class GetFilms extends Command
                                                 $movie = $movie4;
                                                 if ($cast2) {
                                                     $movie->actors()->detach();
-                                                    foreach ($cast as $actor) {
+                                                    foreach ($cast2 as $actor) {
                                                         if ($actor['known_for_department'] == 'Acting') {
                     
                                                             $arrayActor = Actor::updateOrCreate(array(
@@ -750,7 +750,7 @@ class GetFilms extends Command
                     
                                                 if ($crew2) {
                                                     $movie->directors()->detach();
-                                                    foreach ($crew as $director) {
+                                                    foreach ($crew2 as $director) {
                                                         if ($director['job'] == 'Director') {
                                                             $arrayDirector = Director::updateOrCreate(array(
                                                                 'director' => $director['name'],
@@ -857,7 +857,7 @@ class GetFilms extends Command
                                                 $movie = $movie5;
                                                 if ($cast2) {
                                                     $movie->actors()->detach();
-                                                    foreach ($cast as $actor) {
+                                                    foreach ($cast2 as $actor) {
                                                         if ($actor['known_for_department'] == 'Acting') {
                     
                                                             $arrayActor = Actor::updateOrCreate(array(
@@ -872,7 +872,7 @@ class GetFilms extends Command
                     
                                                 if ($crew2) {
                                                     $movie->directors()->detach();
-                                                    foreach ($crew as $director) {
+                                                    foreach ($crew2 as $director) {
                                                         if ($director['job'] == 'Director') {
                                                             $arrayDirector = Director::updateOrCreate(array(
                                                                 'director' => $director['name'],
@@ -1148,7 +1148,7 @@ class GetFilms extends Command
                                                 $movie22 = $movie7;
                                                 if ($cast3) {
                                                     $movie22->actors()->detach();
-                                                    foreach ($cast as $actor) {
+                                                    foreach ($cast3 as $actor) {
                                                         if ($actor['known_for_department'] == 'Acting') {
                                                             $arrayActor2 = Actor::updateOrCreate(array(
                                                                 'actor' => $actor['name'],
@@ -1162,7 +1162,7 @@ class GetFilms extends Command
                     
                                                 if ($crew3) {
                                                     $movie22->directors()->detach();
-                                                    foreach ($crew as $director) {
+                                                    foreach ($crew3 as $director) {
                                                         if ($director['job'] == 'Director') {
                                                             $arrayDirector2 = Director::updateOrCreate(array(
                                                                 'director' => $director['name'],
@@ -1275,7 +1275,7 @@ class GetFilms extends Command
                                                 $movie22 = $movie8;
                                                 if ($cast3) {
                                                     $movie22->actors()->detach();
-                                                    foreach ($cast as $actor) {
+                                                    foreach ($cast3 as $actor) {
                                                         if ($actor['known_for_department'] == 'Acting') {
                                                             $arrayActor2 = Actor::updateOrCreate(array(
                                                                 'actor' => $actor['name'],
@@ -1289,7 +1289,7 @@ class GetFilms extends Command
                     
                                                 if ($crew3) {
                                                     $movie22->directors()->detach();
-                                                    foreach ($crew as $director) {
+                                                    foreach ($crew3 as $director) {
                                                         if ($director['job'] == 'Director') {
                                                             $arrayDirector2 = Director::updateOrCreate(array(
                                                                 'director' => $director['name'],
@@ -1569,7 +1569,7 @@ class GetFilms extends Command
 
                                                 if ($cast3) {
                                                     $movie22->actors()->detach();
-                                                    foreach ($cast as $actor) {
+                                                    foreach ($cast3 as $actor) {
                                                         if ($actor['known_for_department'] == 'Acting') {
                                                             $arrayActor2 = Actor::updateOrCreate(array(
                                                                 'actor' => $actor['name'],
@@ -1583,7 +1583,7 @@ class GetFilms extends Command
                     
                                                 if ($crew3) {
                                                     $movie22->directors()->detach();
-                                                    foreach ($crew as $director) {
+                                                    foreach ($crew3 as $director) {
                                                         if ($director['job'] == 'Director') {
                                                             $arrayDirector2 = Director::updateOrCreate(array(
                                                                 'director' => $director['name'],
@@ -1695,7 +1695,7 @@ class GetFilms extends Command
                                                 
                                                 if ($cast3) {
                                                     $movie22->actors()->detach();
-                                                    foreach ($cast as $actor) {
+                                                    foreach ($cast3 as $actor) {
                                                         if ($actor['known_for_department'] == 'Acting') {
                                                             $arrayActor2 = Actor::updateOrCreate(array(
                                                                 'actor' => $actor['name'],
@@ -1709,7 +1709,7 @@ class GetFilms extends Command
                     
                                                 if ($crew3) {
                                                     $movie22->directors()->detach();
-                                                    foreach ($crew as $director) {
+                                                    foreach ($crew3 as $director) {
                                                         if ($director['job'] == 'Director') {
                                                             $arrayDirector2 = Director::updateOrCreate(array(
                                                                 'director' => $director['name'],
