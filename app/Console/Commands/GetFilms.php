@@ -633,6 +633,7 @@ class GetFilms extends Command
 
                         if ($result) {
                             //$this->info(print_r( $result['id'], true));
+                            
                             $response3 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
                             $arrayResponse3 = $response3->json();
 
@@ -1048,11 +1049,11 @@ class GetFilms extends Command
                         if ($result) {
                             //$this->info(print_r( $result['id'], true));
                             
-                            $response3 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
-                            $arrayResponse3 = $response3->json();
+                            $response4 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
+                            $arrayResponse4 = $response4->json();
 
-                            $cast3 = $arrayResponse3['cast'];
-                            $crew3 = $arrayResponse3['crew'];
+                            $cast3 = $arrayResponse4['cast'];
+                            $crew3 = $arrayResponse4['crew'];
 
                             $response2 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
                             $arrayResponse2 = $response2->json();
@@ -1470,11 +1471,11 @@ class GetFilms extends Command
 
                         if ($result) {
                             //$this->info(print_r( $result['id'], true));
-                            $response3 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
-                            $arrayResponse3 = $response3->json();
+                            $response4 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '/credits?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
+                            $arrayResponse4 = $response4->json();
 
-                            $cast4 = $arrayResponse3['cast'];
-                            $crew4 = $arrayResponse3['crew'];
+                            $cast4 = $arrayResponse4['cast'];
+                            $crew4 = $arrayResponse4['crew'];
 
                             $response2 = Http::get('https://api.themoviedb.org/3/movie/' . $result['id'] . '?api_key=308fcbf28834111e1abaf741ad70b08d&language=es');
                             $arrayResponse2 = $response2->json();
