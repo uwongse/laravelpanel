@@ -57,6 +57,53 @@ class MoviesControler extends Controller
         ->get());
     }
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function proximamenteteatro()
+    {
+        $date = Carbon::now()->format("Y/m/d");
+        //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+
+        return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
+            $query->where('release_date','>', $date)->where('cinema_id', 3);
+        })->with('projections')->with('Qualification')->with('Actor')->with('Director')->get()->sortBy(function($movie, $key) {
+            return $movie->projections()->first()->release_date;
+          }));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function proximamentecineortega()
+    {
+        $date = Carbon::now()->format("Y/m/d");
+        //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+        return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
+            $query->where('release_date','>', $date)->where('cinema_id', 1);
+        })->with('projections')->with('Qualification')->with('Actor')->with('Director')->get()->sortBy(function($movie, $key) {
+            return $movie->projections()->first()->release_date;
+          }));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function proximamenteavenida()
+    {
+        $date = Carbon::now()->format("Y/m/d");
+        //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+
+        return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
+            $query->where('release_date','>', $date)->where('cinema_id', 2);
+        })->with('projections')->with('Qualification')->with('Actor')->with('Director')->get()->sortBy(function($movie, $key) {
+            return $movie->projections()->first()->release_date;
+          }));
+    }
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

@@ -30,7 +30,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-
+Route::get('proximamenteavenida', [MoviesControler::class, 'proximamenteavenida']);
+Route::get('proximamentecineortega', [MoviesControler::class, 'proximamentecineortega']);
+Route::get('proximamenteteatroortega', [MoviesControler::class, 'proximamenteteatro']);
 
 
 Route::get('avenida', [MoviesControler::class, 'index']);
