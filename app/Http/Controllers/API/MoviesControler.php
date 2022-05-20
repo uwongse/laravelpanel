@@ -8,6 +8,7 @@ use App\Models\Movie;
 use Illuminate\Database\Eloquent\Builder;
 use Carbon\Carbon;
 use App\Http\Resources\MoviesAllResource;
+use App\Http\Resources\ProjectionIDResource;
 
 class MoviesControler extends Controller
 {
