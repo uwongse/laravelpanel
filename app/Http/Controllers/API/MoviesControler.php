@@ -18,9 +18,10 @@ class MoviesControler extends Controller
      */
     public function index()
     {
+        $date = Carbon::now()->format("Y/m/d");
         //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-        return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query )  {
+        return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date) {
             $query->where('release_date','>=',$date)->where('cinema_id', 2);
         })->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')
         ->get());
@@ -32,9 +33,10 @@ class MoviesControler extends Controller
      */
     public function index2()
     {
+        $date = Carbon::now()->format("Y/m/d");
         //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
-        return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query )   {
+        return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
             $query->where('release_date','>=',$date)->where('cinema_id', 1);
         })->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')
         ->get());
@@ -47,8 +49,9 @@ class MoviesControler extends Controller
     public function index3()
     {
        // $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+       $date = Carbon::now()->format("Y/m/d");
 
-        return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query )   {
+        return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
             $query->where('release_date','>=',$date)->where('cinema_id', 3);
         })->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')
         ->get());
