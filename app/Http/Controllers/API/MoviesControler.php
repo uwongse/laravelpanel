@@ -21,7 +21,7 @@ class MoviesControler extends Controller
         //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query )  {
-            $query->where('cinema_id', 2);
+            $query->where('release_date','>=',$date)->where('cinema_id', 2);
         })->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')
         ->get());
     }
@@ -35,7 +35,7 @@ class MoviesControler extends Controller
         //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query )   {
-            $query->where('cinema_id', 1);
+            $query->where('release_date','>=',$date)->where('cinema_id', 1);
         })->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')
         ->get());
     }
@@ -49,7 +49,7 @@ class MoviesControler extends Controller
        // $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query )   {
-            $query->where('cinema_id', 3);
+            $query->where('release_date','>=',$date)->where('cinema_id', 3);
         })->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')
         ->get());
     }
