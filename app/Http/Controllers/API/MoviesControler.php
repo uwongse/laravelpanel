@@ -36,8 +36,7 @@ class MoviesControler extends Controller
     public function index2()
     {
         $date = Carbon::now()->format("Y/m/d");
-        //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
-
+      
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
             $query->where('release_date','>=',$date)->where('cinema_id', 1);
         })->with('Qualification')->with('Actor')->with('Director')->get()->sortBy(function($movie, $key) {
@@ -51,7 +50,7 @@ class MoviesControler extends Controller
      */
     public function index3()
     {
-       // $id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
+
        $date = Carbon::now()->format("Y/m/d");
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
@@ -68,8 +67,7 @@ class MoviesControler extends Controller
     public function proximamenteteatro()
     {
         $date = Carbon::now()->format("Y/m/d");
-        //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
-
+        
         return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
             $query->where('release_date','>', $date)->where('cinema_id', 3);
         })->with('projections')->with('Qualification')->with('Actor')->with('Director')->get()->sortBy(function($movie, $key) {
