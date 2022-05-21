@@ -113,8 +113,7 @@ class MoviesController extends Controller
         $sanitized = $request->getSanitized();
 
         $sanitized['qualification_id'] = $request->getQualificationId();
-        $sanitized['actors'] = $request->getActors();
-        $sanitized['directors'] = $request->getDirectors();
+
 
         DB::transaction(function () use ($sanitized) {
             // Store the ArticlesWithRelationship
