@@ -45,7 +45,7 @@ class id2Controler extends Controller
         $date = Carbon::now()->format("Y/m/d");
 
         return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ( $date)  {
-            $query->where('release_date','>=',$date);
+            $query->where('release_date','>',$date);
         })->where('id', $id)->with('Projections')->with('Qualification')->with('Actor')->with('Director')->with('projections.cinema')
         ->with('projections.room')->get());
     }
