@@ -23,9 +23,11 @@ class MoviesControler extends Controller
         //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date) {
-            $query->where('release_date','=',$date)->where('cinema_id', 2);
-        })->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')
-        ->get());
+            $query->where('release_date','>=',$date)->where('cinema_id', 2);
+        })->with('Qualification')->with('Actor')->with('Director')
+        ->get()->sortBy(function($movie, $key) {
+            return $movie->projections()->first()->release_date;
+          }));
     }
 /**
      * Display a listing of the resource.
@@ -38,9 +40,11 @@ class MoviesControler extends Controller
         //$id=Syncronitation::where('result', 'ok')->orderBy('created_at', 'desc')->first();
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
-            $query->where('release_date','=',$date)->where('cinema_id', 1);
-        })->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')
-        ->get());
+            $query->where('release_date','>=',$date)->where('cinema_id', 1);
+        })->with('Qualification')->with('Actor')->with('Director')
+        ->get()->sortBy(function($movie, $key) {
+            return $movie->projections()->first()->release_date;
+          }));
     }
     /**
      * Display a listing of the resource.
@@ -54,8 +58,10 @@ class MoviesControler extends Controller
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
             $query->where('release_date','>=',$date)->where('cinema_id', 3);
-        })->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')
-        ->get());
+        })->with('Qualification')->with('Actor')->with('Director')
+        ->get()->sortBy(function($movie, $key) {
+            return $movie->projections()->first()->release_date;
+          }));
     }
     /**
      * Display a listing of the resource.
