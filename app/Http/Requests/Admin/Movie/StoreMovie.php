@@ -39,8 +39,8 @@ class StoreMovie extends FormRequest
             'active' => ['nullable', 'boolean'],
             'update' => ['nullable', 'boolean'],
             'qulification'=> ['requiered'],
-            'actors' => ['nullable', 'string'],
-            'directors' => ['nullable', 'string'],
+            'actors' => ['nullable'],
+            'directors' => ['nullable'],
         ];
     }
     public function getActors(): array
