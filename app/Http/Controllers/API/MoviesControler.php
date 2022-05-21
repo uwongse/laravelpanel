@@ -24,8 +24,7 @@ class MoviesControler extends Controller
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date) {
             $query->where('release_date','>=',$date)->where('cinema_id', 2);
-        })->with('Qualification')->with('Actor')->with('Director')
-        ->get()->sortBy(function($movie, $key) {
+        })->with('Qualification')->with('Actor')->with('Director')->get()->sortBy(function($movie, $key) {
             return $movie->projections()->first()->release_date;
           }));
     }
@@ -41,8 +40,7 @@ class MoviesControler extends Controller
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
             $query->where('release_date','>=',$date)->where('cinema_id', 1);
-        })->with('Qualification')->with('Actor')->with('Director')
-        ->get()->sortBy(function($movie, $key) {
+        })->with('Qualification')->with('Actor')->with('Director')->get()->sortBy(function($movie, $key) {
             return $movie->projections()->first()->release_date;
           }));
     }
@@ -58,8 +56,7 @@ class MoviesControler extends Controller
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
             $query->where('release_date','>=',$date)->where('cinema_id', 3);
-        })->with('Qualification')->with('Actor')->with('Director')
-        ->get()->sortBy(function($movie, $key) {
+        })->with('Qualification')->with('Actor')->with('Director')->get()->sortBy(function($movie, $key) {
             return $movie->projections()->first()->release_date;
           }));
     }
