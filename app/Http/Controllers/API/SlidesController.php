@@ -15,7 +15,7 @@ class SlidesController extends Controller
      */
     public function index()
     {
-       return SlideResource::collection( Slide::all());
+       return SlideResource::collection( Slide::where('active','=',1)->get());
     }
 
     /**
