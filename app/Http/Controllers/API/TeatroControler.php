@@ -23,7 +23,7 @@ class TeatroControler extends Controller
         $date = Carbon::now()->format("Y/m/d");
 
         return ProjectionIDResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
-            $query->where('release_date',">=", $date)->where('cinema_id', 3);
+            $query->where('release_date',">=", $date)->where('cinema_id', 3)->where('valid','=', 0);
         })->orderBy('premiere', 'asc')->with('Qualification')->with('Actor')->with('Director')
         ->get());
     }
