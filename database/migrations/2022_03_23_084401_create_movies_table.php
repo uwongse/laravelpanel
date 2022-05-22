@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('buy')->nullable();
             $table->tinyInteger('active')->default('1')->nullable();
             $table->tinyInteger('update')->default('0')->nullable();
+            $table->tinyInteger('valid')->default('0')->nullable();
             $table->bigInteger('qualification_id')->unsigned();
             $table->foreign('qualification_id')->references('id')->on('qualifications');
             $table->timestamps();

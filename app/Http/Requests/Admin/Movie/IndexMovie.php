@@ -25,7 +25,7 @@ class IndexMovie extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,title,duration,date,trailer,type,premiere,buy,active,update,qualification_id|nullable',
+            'orderBy' => 'in:id,title,duration,date,trailer,type,premiere,buy,active,update,valid,qualification_id|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',

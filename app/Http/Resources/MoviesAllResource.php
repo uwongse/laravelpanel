@@ -28,6 +28,7 @@ class MoviesAllResource extends JsonResource
             'poster'=>$this->getFirstMediaUrl('posters'),
             'background'=>$this->getFirstMediaUrl('backgrounds'),
             'trailer'=>$this->trailer,
+            'valid'=>$this->valid,
             'type'=>$this->type,
             'premiere'=>$this->premiere,
             'buy'=>$this->buy,

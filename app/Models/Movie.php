@@ -32,6 +32,7 @@ class Movie extends Model implements HasMedia
         'active',
         'update',
         'qualification_id',
+        'valid'
 
     ];
 

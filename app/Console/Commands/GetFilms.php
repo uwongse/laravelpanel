@@ -247,6 +247,7 @@ class GetFilms extends Command
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
                                             'update' => 1,
+                                            'valid'=> 0,
                                         ])->get();
 
                                         //$this->info(print_r($moviefind1[0]->title, true));
@@ -260,6 +261,7 @@ class GetFilms extends Command
                                                     'title' => $dato->titulo,
                                                     'buy' => $dato->compra,
                                                     'update' => 1,
+                                                    'valid'=> 0,
                                                 ]
                                             )->get()->first();
                                             $movie = $moviespan;
@@ -272,13 +274,14 @@ class GetFilms extends Command
                                                 [
                                                     'buy' => $dato->compra,
                                                     'update' => 0,
+                                                    'valid'=> 0,
                                                 ],
                                                 array(
                                                     'title' => $dato->titulo,
                                                     'synopsis' => $dato->sinopsis,
                                                     'duration' => $dato->duracion,
 
-
+                                                    'valid'=> 0,
                                                     'date' => $fechadayid,
                                                     'trailer' => $dato->trailer,
                                                     'type' => $dato->tipodecontenido,
@@ -390,6 +393,7 @@ class GetFilms extends Command
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
                                             'update' => 1,
+                                            'valid'=> 0,
                                         ])->get();
 
 
@@ -399,6 +403,7 @@ class GetFilms extends Command
                                                     'title' => $dato->titulo,
                                                     'buy' => $dato->compra,
                                                     'update' => 1,
+                                                    'valid'=> 0,
                                                 ]
                                             )->get()->first();
                                             $movie = $moviespan2;
@@ -409,12 +414,13 @@ class GetFilms extends Command
                                                 [
                                                     'buy' => $dato->compra,
                                                     'update' => 0,
+                                                    'valid'=> 0,
                                                 ],
                                                 array(
                                                     'title' => $dato->titulo,
                                                     'synopsis' => $dato->sinopsis,
                                                     'duration' => $dato->duracion,
-
+                                                    'valid'=> 0,
                                                     'date' =>  $fechadayid2,
                                                     'trailer' => $dato->trailer,
                                                     'type' => $dato->tipodecontenido,
@@ -529,6 +535,7 @@ class GetFilms extends Command
                                         'title' => $dato->titulo,
                                         'buy' => $dato->compra,
                                         'update' => 1,
+                                        'valid'=> 0,
                                     ])->get();
 
 
@@ -539,6 +546,7 @@ class GetFilms extends Command
                                                 'title' => $dato->titulo,
                                                 'buy' => $dato->compra,
                                                 'update' => 1,
+                                                'valid'=> 0,
                                             ]
                                         )->get()->first();
                                         $movie = $moviespan3;
@@ -549,6 +557,7 @@ class GetFilms extends Command
                                             [
                                                 'buy' => $dato->compra,
                                                 'update' => 0,
+                                                'valid'=> 0,
                                             ],
                                             array(
                                                 'title' => $dato->titulo,
@@ -557,7 +566,7 @@ class GetFilms extends Command
 
                                                 'date' => $fechadayid3,
                                                 'trailer' => $dato->trailer,
-
+                                                'valid'=> 0,
                                                 'type' => $dato->tipodecontenido,
                                                 'premiere' => $date3,
                                                 'buy' => $dato->compra,
@@ -680,6 +689,7 @@ class GetFilms extends Command
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
                                             'update' => 1,
+                                            'valid'=> 0,
                                         ])->get();
 
 
@@ -690,6 +700,7 @@ class GetFilms extends Command
                                                     'title' => $dato->titulo,
                                                     'buy' => $dato->compra,
                                                     'update' => 1,
+                                                    'valid'=> 0,
                                                 ]
                                             )->get()->first();
                                             $movie = $moviespan4;
@@ -699,13 +710,15 @@ class GetFilms extends Command
                                             $movie4 = Movie::updateOrCreate(
                                                 [
                                                     'buy' => $dato->compra,
+                                                    'update' => 0,
+                                                    'valid'=> 0,
                                                 ],
                                                 array(
                                                     'title' => $dato->titulo,
                                                     'synopsis' => $dato->sinopsis,
                                                     'duration' => $dato->duracion,
 
-
+                                                    'valid'=> 0,
                                                     'date' => $fechadayid4,
                                                     'trailer' => $dato->trailer,
 
@@ -821,6 +834,7 @@ class GetFilms extends Command
                                                     'title' => $dato->titulo,
                                                     'buy' => $dato->compra,
                                                     'update' => 1,
+                                                    'valid'=> 0,
                                                 ]
                                             )->get()->first();
                                             $movie = $moviespan6;
@@ -831,11 +845,13 @@ class GetFilms extends Command
                                                 [
                                                     'buy' => $dato->compra,
                                                     'update' => 0,
+                                                    'valid'=> 0,
                                                 ],
                                                 array(
                                                     'title' => $dato->titulo,
                                                     'synopsis' => $dato->sinopsis,
                                                     'duration' => $dato->duracion,
+                                                    'valid'=> 0,
 
                                                     'trailer' => $dato->trailer,
                                                     'qualification_id' => $qualification->id,
@@ -939,6 +955,7 @@ class GetFilms extends Command
                                         'title' => $dato->titulo,
                                         'buy' => $dato->compra,
                                         'update' => 1,
+                                        'valid'=> 0,
                                     ])->get();
 
 
@@ -948,6 +965,7 @@ class GetFilms extends Command
                                                 'title' => $dato->titulo,
                                                 'buy' => $dato->compra,
                                                 'update' => 1,
+                                                'valid'=> 0,
                                             ]
                                         )->get()->first();
                                         $movie = $moviespan7;
@@ -958,12 +976,13 @@ class GetFilms extends Command
                                             [
                                                 'buy' => $dato->compra,
                                                 'update' => 0,
+                                                'valid'=> 0,
                                             ],
                                             array(
                                                 'title' => $dato->titulo,
                                                 'synopsis' => $dato->sinopsis,
                                                 'duration' => $dato->duracion,
-
+                                                'valid'=> 0,
                                                 'trailer' => $dato->trailer,
                                                 'qualification_id' => $qualification->id,
                                                 'type' => $dato->tipodecontenido,
@@ -1096,6 +1115,7 @@ class GetFilms extends Command
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
                                             'update' => 1,
+                                            'valid'=> 0,
                                         ])->get();
 
 
@@ -1105,6 +1125,7 @@ class GetFilms extends Command
                                                     'title' => $dato->titulo,
                                                     'buy' => $dato->compra,
                                                     'update' => 1,
+                                                    'valid'=> 0,
                                                 ]
                                             )->get()->first();
                                             $movie22 = $moviespan8;
@@ -1115,12 +1136,13 @@ class GetFilms extends Command
                                                 [
                                                     'buy' => $dato->compra,
                                                     'update' => 0,
+                                                    'valid'=> 0,
                                                 ],
                                                 array(
                                                     'title' => $dato->titulo,
                                                     'synopsis' => $dato->sinopsis,
                                                     'duration' => $dato->duracion,
-
+                                                    'valid'=> 0,
                                                     'trailer' => $dato->trailer,
                                                     'qualification_id' => $qualification->id,
                                                     'type' => $dato->tipodecontenido,
@@ -1230,6 +1252,7 @@ class GetFilms extends Command
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
                                             'update' => 1,
+                                            'valid'=> 0,
                                         ])->get();
 
                                         if ($moviefind9) {
@@ -1238,6 +1261,7 @@ class GetFilms extends Command
                                                     'title' => $dato->titulo,
                                                     'buy' => $dato->compra,
                                                     'update' => 1,
+                                                    'valid'=> 0,
                                                 ]
                                             )->get()->first();
                                             $movie22 = $moviespan9;
@@ -1248,12 +1272,13 @@ class GetFilms extends Command
                                                 [
                                                     'buy' => $dato->compra,
                                                     'update' => 0,
+                                                    'valid'=> 0,
                                                 ],
                                                 array(
                                                     'title' => $dato->titulo,
                                                     'synopsis' => $dato->sinopsis,
                                                     'duration' => $dato->duracion,
-
+                                                    'valid'=> 0,
                                                     'trailer' => $dato->trailer,
                                                     'qualification_id' => $qualification->id,
                                                     'type' => $dato->tipodecontenido,
@@ -1362,6 +1387,7 @@ class GetFilms extends Command
                                         'title' => $dato->titulo,
                                         'buy' => $dato->compra,
                                         'update' => 1,
+                                        'valid'=> 0,
                                     ])->get();
 
 
@@ -1371,6 +1397,7 @@ class GetFilms extends Command
                                                 'title' => $dato->titulo,
                                                 'buy' => $dato->compra,
                                                 'update' => 1,
+                                                'valid'=> 0,
                                             ]
                                         )->get()->first();
                                         $movie22 = $moviespan10;
@@ -1381,12 +1408,13 @@ class GetFilms extends Command
                                             [
                                                 'buy' => $dato->compra,
                                                 'update' => 0,
+                                                'valid'=> 0,
                                             ],
                                             array(
                                                 'title' => $dato->titulo,
                                                 'synopsis' => $dato->sinopsis,
                                                 'duration' => $dato->duracion,
-
+                                                'valid'=> 0,
                                                 'trailer' => $dato->trailer,
                                                 'qualification_id' => $qualification->id,
                                                 'type' => $dato->tipodecontenido,
@@ -1515,6 +1543,7 @@ class GetFilms extends Command
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
                                             'update' => 1,
+                                            'valid'=> 0,
                                         ])->get();
 
 
@@ -1524,6 +1553,7 @@ class GetFilms extends Command
                                                     'title' => $dato->titulo,
                                                     'buy' => $dato->compra,
                                                     'update' => 1,
+                                                    'valid'=> 0,
                                                 ]
                                             )->get()->first();
                                             $movie22 = $moviespan11;
@@ -1534,12 +1564,13 @@ class GetFilms extends Command
                                                 [
                                                     'buy' => $dato->compra,
                                                     'update' => 0,
+                                                    'valid'=> 0,
                                                 ],
                                                 array(
                                                     'title' => $dato->titulo,
                                                     'synopsis' => $dato->sinopsis,
                                                     'duration' => $dato->duracion,
-
+                                                    'valid'=> 0,
 
                                                     'trailer' => $dato->trailer,
                                                     'qualification_id' => $qualification->id,
@@ -1644,6 +1675,7 @@ class GetFilms extends Command
                                             'title' => $dato->titulo,
                                             'buy' => $dato->compra,
                                             'update' => 1,
+                                            'valid'=> 0,
                                         ])->get();
 
                                         if ($moviefind12) {
@@ -1652,6 +1684,7 @@ class GetFilms extends Command
                                                     'title' => $dato->titulo,
                                                     'buy' => $dato->compra,
                                                     'update' => 1,
+                                                    'valid'=> 0,
                                                 ]
                                             )->get()->first();
                                             $movie22 = $moviespan12;
@@ -1662,12 +1695,13 @@ class GetFilms extends Command
                                                 [
                                                     'buy' => $dato->compra,
                                                     'update' => 0,
+                                                    'valid'=> 0,
                                                 ],
                                                 array(
                                                     'title' => $dato->titulo,
                                                     'synopsis' => $dato->sinopsis,
                                                     'duration' => $dato->duracion,
-
+                                                    'valid'=> 0,
                                                     'trailer' => $dato->trailer,
                                                     'qualification_id' => $qualification->id,
                                                     'type' => $dato->tipodecontenido,
@@ -1773,6 +1807,7 @@ class GetFilms extends Command
                                         'title' => $dato->titulo,
                                         'buy' => $dato->compra,
                                         'update' => 1,
+                                        'valid'=> 0,
                                     ])->get();
 
                                     if ($moviefind13) {
@@ -1781,6 +1816,7 @@ class GetFilms extends Command
                                                 'title' => $dato->titulo,
                                                 'buy' => $dato->compra,
                                                 'update' => 1,
+                                                'valid'=> 0,
                                             ]
                                         )->get()->first();
                                         $movie22 = $moviespan13;
@@ -1791,12 +1827,13 @@ class GetFilms extends Command
                                             [
                                                 'buy' => $dato->compra,
                                                 'update' => 0,
+                                                'valid'=> 0,
                                             ],
                                             array(
                                                 'title' => $dato->titulo,
                                                 'synopsis' => $dato->sinopsis,
                                                 'duration' => $dato->duracion,
-
+                                                'valid'=> 0,
                                                 'trailer' => $dato->trailer,
                                                 'qualification_id' => $qualification->id,
                                                 'type' => $dato->tipodecontenido,

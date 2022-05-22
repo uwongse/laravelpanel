@@ -26,6 +26,7 @@ class MovieResource extends JsonResource
             'trailer'=>$this->trailer,
             'type'=>$this->type,
             'premiere'=>$this->premiere,
+            'valid'=>$this->valid,
             'buy'=>$this->buy,
             'active'=>$this->active,
             'update'=>$this->update,

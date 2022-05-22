@@ -42,7 +42,7 @@ class MoviesController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'title', 'duration', 'date', 'trailer', 'type', 'premiere', 'buy', 'active','update', 'qualification_id'],
+            ['id', 'title', 'duration', 'date', 'trailer', 'type', 'premiere', 'buy', 'active','update','valid', 'qualification_id'],
 
             // set columns to searchIn
             ['id', 'title', ],

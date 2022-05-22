@@ -117,6 +117,17 @@
     </div>
 </div>
 
+<div class="form-check row" :class="{'has-danger': errors.has('valid'), 'has-success': fields.valid && fields.valid.valid }">
+    <div class="ml-md-auto" :class="isFormLocalized ? 'col-md-8' : 'col-md-10'">
+        <input class="form-check-input" id="valid" type="checkbox" v-model="form.valid"  data-vv-name="valid"  name="valid_fake_element">
+        <label class="form-check-label" for="valid">
+            {{ trans('valid') }}
+        </label>
+        <input type="hidden" name="valid" :value="form.valid">
+        <div v-if="errors.has('valid')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('valid') }}</div>
+    </div>
+</div>
+
 <div class="form-group row align-items-center"
      :class="{'has-danger': errors.has('qualification_id'), 'has-success': this.fields.qualification_id && this.fields.qualification_id.valid }">
     <label for="qualification_id"

@@ -37,6 +37,7 @@ class UpdateMovie extends FormRequest
             'premiere' => ['sometimes', 'date'],
             'buy' => ['nullable', 'string'],
             'active' => ['nullable', 'boolean'],
+            'valid' => ['nullable', 'boolean'],
             'update' => ['nullable', 'boolean'],
             'qulification'=> ['requiered'],
 

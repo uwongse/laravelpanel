@@ -38,6 +38,7 @@ class StoreMovie extends FormRequest
             'buy' => ['nullable', 'string'],
             'active' => ['nullable', 'boolean'],
             'update' => ['nullable', 'boolean'],
+            'valid' => ['nullable', 'boolean'],
             'qulification'=> ['requiered'],
             'actors' => ['nullable'],
             'directors' => ['nullable'],

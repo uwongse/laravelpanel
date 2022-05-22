@@ -26,6 +26,7 @@ class MovieId extends JsonResource
             'type'=>$this->type,
             'premiere'=>$this->premiere,
             'buy'=>$this->buy,
+            'valid'=>$this->valid,
             'active'=>$this->active,
             'update'=>$this->update,
             'projections'=> ProjectionResource::collection($this->whenLoaded('projections')),
