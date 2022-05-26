@@ -51,7 +51,9 @@ class MoviesControler extends Controller
 
         return MoviesAllResource::collection( Movie::whereHas('projections', function (Builder $query ) use ($date)  {
             $query->where('release_date','>=',$date)->where('cinema_id', 3)->where('valid','=', 0);
-        })->orderBy('active', 'desc')->with('Qualification')->with('Actor')->with('Director')->get());
+        })->orderBy('active', 'desc')->with('Qualification')->with('Actor')->with('Director')->get()->sortBy(function($movie, $key) {
+            return $movie->projections()->first()->release_date;
+          }));
     }
     /**
      * Display a listing of the resource.
