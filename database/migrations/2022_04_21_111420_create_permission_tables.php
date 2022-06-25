@@ -51,7 +51,7 @@ class CreatePermissionTables extends Migration
         });
 
         Schema::create($tableNames['model_has_permissions'], function (Blueprint $table) use ($tableNames, $columnNames, $teams) {
-            \Illuminate\Support\Facades\DB::statement('SET SESSION sql_require_primary_key=0');
+            //\Illuminate\Support\Facades\DB::statement('SET SESSION sql_require_primary_key=0');
             $table->unsignedBigInteger(PermissionRegistrar::$pivotPermission);
             
             $table->string('model_type');
@@ -77,7 +77,7 @@ class CreatePermissionTables extends Migration
         });
 
         Schema::create($tableNames['model_has_roles'], function (Blueprint $table) use ($tableNames, $columnNames, $teams) {
-            \Illuminate\Support\Facades\DB::statement('SET SESSION sql_require_primary_key=0');
+            //\Illuminate\Support\Facades\DB::statement('SET SESSION sql_require_primary_key=0');
             $table->unsignedBigInteger(PermissionRegistrar::$pivotRole);
 
             $table->string('model_type');
@@ -102,7 +102,7 @@ class CreatePermissionTables extends Migration
         });
 
         Schema::create($tableNames['role_has_permissions'], function (Blueprint $table) use ($tableNames) {
-            \Illuminate\Support\Facades\DB::statement('SET SESSION sql_require_primary_key=0');
+           // \Illuminate\Support\Facades\DB::statement('SET SESSION sql_require_primary_key=0');
             $table->unsignedBigInteger(PermissionRegistrar::$pivotPermission);
             $table->unsignedBigInteger(PermissionRegistrar::$pivotRole);
 
