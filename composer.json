@@ -52,7 +52,13 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "post-install-cmd": [ "ln -sr storage/app/public public/storage" ]
+        "post-install-cmd": [
+            "ln -sr storage/app/public public/storage",
+            "php artisan clear-compiled",
+            "php artisan optimize",
+            "chmod -R 775 public/",
+            "chmod -R 775 storage/"
+          ]
     },
     "extra": {
         "laravel": {
